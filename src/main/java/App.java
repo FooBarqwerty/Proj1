@@ -4,3 +4,9 @@ public class App{
 
 	}
 }
+
+class Student{
+
+}
+
+
