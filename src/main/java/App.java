@@ -9,4 +9,12 @@ class Student{
 
 }
 
+class Examen{
+
+}
+
+class results{
+
+}
+
 
