@@ -8,7 +8,12 @@ public class App {
 		questionArrayList.add(new Question("Wat is the hoofdstad van Nederland?", "Amsterdam"));
 
 		Question sad = new Question("Wat is de hoofdstad van de USA?","Washington DC");
+		Question france = new Question("Wat is de hoofdstad van Frankrijk?", "Nice", "Parijs");
+
 		questionArrayList.add(sad);
+		questionArrayList.add(france);
+
+
 
 		System.out.println(questionArrayList.get(0).getQuestion());
 
