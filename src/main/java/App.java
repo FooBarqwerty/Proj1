@@ -9,7 +9,7 @@ public class App {
 
 class Student{
 private String Naam;
-private static Integer studentNummer = 20000000;
+private static Integer studentNummer;
 private ArrayList<Student> student;
 
 public void Student(String Naam){
@@ -17,11 +17,8 @@ public void Student(String Naam){
 	this.studentNummer = studentNummer;
 }
 
-private static Integer uniekNummer() { // This raises the unique number of the client each time it is used.
-		int uniekNummer = studentNummer;
-		studentNummer++;
-		return uniekNummer;
-	}
+
+
 
 public void setStudent(String Naam){
 	this.Naam = Naam;
