@@ -23,7 +23,7 @@ private static Integer uniekNummer() { // This raises the unique number of the c
 		return uniekNummer;
 	}
 
-public void inschrijven(String Naam){
+public void setStudent(String Naam){
 	this.Naam = Naam;
 	uniekNummer();
 }
@@ -31,6 +31,10 @@ public void inschrijven(String Naam){
 }
 
 class Examen{
+private String Naam;
+private String TypeOfExam;
+private Integer aantalVragen;
+private
 
 }
 
