@@ -1,6 +1,24 @@
-public class Question {
+import java.util.ArrayList;
 
+public class Question {
     private String question;
+    private String [] answers;
+    private String correct_answer;
+
+    public Question(String question, String[] answers, String correct_answer) {
+        this.question = question;
+        this.answers = answers;
+        this.correct_answer = correct_answer;
+
+        for (int i = 0; i < answers.length; i++) {
+
+        }
+
+    }
+
+
+
+/*    private String question;
     private String answer1 = "";
     private String answer2 = "";
     private String answer3 = "";
@@ -55,4 +73,6 @@ public class Question {
     public String getAnswer4() {
         return answer4;
     }
+
+ */
 }
