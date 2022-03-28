@@ -5,7 +5,7 @@ public class Examen {
     public final String naam;
     private String TypeOfExam;
     private Integer aantalVragen;
-    private ArrayList<Examen> LijstExamen;
+    private static ArrayList<Examen> LijstExamen;
 
 
 
