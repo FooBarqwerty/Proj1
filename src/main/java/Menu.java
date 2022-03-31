@@ -10,6 +10,7 @@ class Menu {
         System.out.println("6) Is student geslaagd voor test?");
         System.out.println("7) Welke examens heeft student gehaald?");
         System.out.println("8) Welke student heeft de meeste examens gehaald?");
+        //Reserved 9 for method for adding new exams
         System.out.println("0) Exit");
         System.out.println("Uw Keuze: ");
 
@@ -43,22 +44,23 @@ class Menu {
                     PrintMenu();
                     break;
                 case 0:
-                    System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");;
+                    System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
+                    System.exit(0); // 0 for successful termination, 0 >for unsuccessful termination (What does it mean?)
                     break;
                 default:
-                    System.out.printf("Voer een correcte keuze in.","/n");
+                    System.out.println("Voer een correcte keuze in.");
                     PrintMenu();
             }
         }
         catch (InputMismatchException e){
             System.out.println("Voer een getal in.");
-            System.out.println("");
+            System.out.println(" ");
             PrintMenu();
         }
         catch (Exception e){
             System.out.println(e);
             System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw.");
-            System.out.println("");
+            System.out.println(" ");
             PrintMenu();
         }
 

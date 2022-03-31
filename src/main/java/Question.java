@@ -1,25 +1,37 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Question {
-    private String question;
-    private String [] answers;
-    private String correct_answer;
+    private String question; //question
+    public ArrayList<String> answers; //choices
+    private String correct_answer; //answer
 
-    public Question(String question, String[] answers, String correct_answer) {
+    public Question(String question, ArrayList<String> answers, String correct_answer) {
         this.question = question;
         this.answers = answers;
         this.correct_answer = correct_answer;
-
-        for (int i = 0; i < answers.length; i++) {
-
-        }
-
     }
 
+    //shuffle answers ArrayList
+    public void shuffle() {
+        Collections.shuffle(this.answers);
+    }
 
+    public ArrayList<String> getAnswers() {
+        Collections.shuffle(answers);
+        return answers;
+    }
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getCorrect_answer() {
+        return correct_answer;
+    }
+}
 /*    private String question;
-    private String answer1 = "";
+    private String answer1 = "";,
     private String answer2 = "";
     private String answer3 = "";
     private String answer4 = "";
@@ -73,6 +85,4 @@ public class Question {
     public String getAnswer4() {
         return answer4;
     }
-
  */
-}
