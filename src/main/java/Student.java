@@ -12,10 +12,6 @@ public class Student{
         this.studentNummer = studentNummer;
     }
 
-    public void setStudent(String Naam,){
-        this.Naam = Naam;
-        this.studentNummer = studentNummer;
-    }
     public int getStudentNumber() {
         return studentNummer;
     }
@@ -23,11 +19,13 @@ public class Student{
         return Naam;
     }
 
-    public void NieuweStudent(){
+    public ArrayList<Student> NieuweStudent(){
         Scanner studenten = new Scanner(System.in);
         ArrayList <Student> NotStudents = new ArrayList<>();
+
         System.out.println("Whats your name?");
         String naam = studenten.nextLine();
+
         System.out.println("Whats your studentnumber?");
         Integer studentNummer = studenten.nextInt();
 
@@ -38,6 +36,7 @@ public class Student{
         Student student = new Student(naam,studentNummer);
         NotStudents.add(student);
         Studenten = NotStudents;
+        return NotStudents;
         }
 
     
