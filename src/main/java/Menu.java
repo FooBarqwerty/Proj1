@@ -11,8 +11,9 @@ class Menu {
         System.out.println("7) Welke examens heeft student gehaald?");
         System.out.println("8) Welke student heeft de meeste examens gehaald?");
         //Reserved 9 for method for adding new exams
+        System.out.println("9) Examen toevoegen");
         System.out.println("0) Exit");
-        System.out.println("Uw Keuze: ");
+        System.out.print("Uw Keuze: ");
 
         Scanner scanner = new Scanner(System.in);
         try{
@@ -32,7 +33,8 @@ class Menu {
                     PrintMenu();
                     break;
                 case 5:
-                    PrintMenu();
+                    Examen examen1 = new Examen("Topografie","Multiple Choice");
+                    examen1.spel();
                     break;
                 case 6:
                     PrintMenu();
@@ -42,6 +44,9 @@ class Menu {
                     break;
                 case 8:
                     PrintMenu();
+                    break;
+                case 9:
+                    Examen.examenToevoegen();
                     break;
                 case 0:
                     System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
@@ -63,8 +68,7 @@ class Menu {
             System.out.println(" ");
             PrintMenu();
         }
-
-        System.out.print(" ");
+        System.out.println();
     }
 
     private void ListExams(){
