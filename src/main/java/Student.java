@@ -3,16 +3,16 @@ import java.util.Scanner;
 
 public class Student{
     private String Naam;
-    private static Integer studentNummer;
+    private static Integer studentNummer = 20000000;
     private ArrayList<Student> Studenten = new ArrayList<>();
     private Results results;
 
     public Student(String Naam, Integer studentNummer){
         this.Naam = Naam;
-        this.studentNummer = studentNummer;
+        this.studentNummer++;
     }
 
-    public void setStudent(String Naam, Integer studentNummer){
+    public void setStudent(String Naam){
         this.Naam = Naam;
         this.studentNummer = studentNummer;
     }
@@ -23,7 +23,7 @@ public class Student{
         String naam = studenten.nextLine();
         System.out.println("Whats your studentnumber?");
         Integer studentNummer = studenten.nextInt();
-        while(studenten.nextInt() > 99999999) {
+        while(studentNummer > 99999999 && studentNummer == ) {
 
         }
 
