@@ -16,15 +16,18 @@ class Menu {
         System.out.print("Uw Keuze: ");
 
         Scanner scanner = new Scanner(System.in);
+        Student awd = new Student("dwa", 1221);
         try{
             int keuze = scanner.nextInt();
             switch (keuze){
                 case 1:
                     //code
-                    PrintMenu();
+                    awd.NieuweStudent();
+                    Menu.PrintMenu();
                     break;
                 case 2:
-                    PrintMenu();
+                    awd.DisplayList();
+                    Menu.PrintMenu();
                     break;
                 case 3:
                     PrintMenu();
