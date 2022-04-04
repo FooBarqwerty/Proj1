@@ -12,7 +12,7 @@ public class Student{
         this.studentNummer = studentNummer;
     }
 
-    public void setStudent(String Naam){
+    public void setStudent(String Naam,){
         this.Naam = Naam;
         this.studentNummer = studentNummer;
     }
@@ -30,7 +30,8 @@ public class Student{
         String naam = studenten.nextLine();
         System.out.println("Whats your studentnumber?");
         Integer studentNummer = studenten.nextInt();
-        while((studentNummer > 9999999 && NotStudents.contains(studentNummer)) {
+
+        while(!(studentNummer > 9999999 && studentNummer < 99999999) && NotStudents.contains(studentNummer)) {
             System.out.println("Write it again");
             studentNummer = studenten.nextInt();
         }
@@ -41,9 +42,6 @@ public class Student{
 
     
     public void DisplayList(){
-        Student student = new Student("Hello",123123);
-        Student student2 = new Student("Hello",122123);
-
         for(int i = 0; i < Studenten.size(); i++){
             System.out.println(Studenten.get(i).getNaam());
             System.out.println(Studenten.get(i).getStudentNumber());
