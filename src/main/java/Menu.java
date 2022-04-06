@@ -22,14 +22,15 @@ class Menu {
             switch (keuze){
                 case 1:
                     //code
-                    awd.NieuweStudent();
-                    Menu.PrintMenu();
+
                     break;
                 case 2:
                     awd.DisplayList();
                     Menu.PrintMenu();
                     break;
                 case 3:
+                    awd.NieuweStudent();
+                    Menu.PrintMenu();
                     PrintMenu();
                     break;
                 case 4:
