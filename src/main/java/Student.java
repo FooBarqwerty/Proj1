@@ -21,7 +21,7 @@ public class Student{
 
     public ArrayList<Student> NieuweStudent(){
         Scanner studenten = new Scanner(System.in);
-        ArrayList <Student> NotStudents = new ArrayList<>();
+        //ArrayList <Student> NotStudents = new ArrayList<>();
 
         System.out.println("Whats your name?");
         String naam = studenten.nextLine();
@@ -29,18 +29,21 @@ public class Student{
         System.out.println("Whats your studentnumber?");
         Integer studentNummer = studenten.nextInt();
 
-        while(!(studentNummer > 9999999 && studentNummer < 99999999) && NotStudents.contains(studentNummer)) {
-            System.out.println("Write it again");
-            studentNummer = studenten.nextInt();
+        for (int i = 0; i < Studenten.size(); i++) {
+            while (!(studentNummer > 9999999 && studentNummer < 99999999) && Studenten.get(i).getStudentNumber().contains(studentNummer)) {
+                System.out.println("Write it again");
+                studentNummer = studenten.nextInt();
+            }
         }
-        Student student = new Student(naam,studentNummer);
-        NotStudents.add(student);
-        Studenten = NotStudents;
-        return NotStudents;
+        Studenten.add(new Student(naam, studentNummer));
+        //Studenten = NotStudents;
+        return Studenten;
         }
 
-    
+
+
     public void DisplayList(){
+
         for(int i = 0; i < Studenten.size(); i++){
             System.out.println(Studenten.get(i).getNaam());
             System.out.println(Studenten.get(i).getStudentNumber());
