@@ -28,7 +28,7 @@ public class Examen {
 
     }
 
-    public void spel () {
+    public void toets() {
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;
         int totaal_vragen = aantalVragen;
@@ -81,7 +81,7 @@ public class Examen {
         System.out.println("Aantal goede antwoorden:" + goede_antwoorden);
         scanner.close();
     }
-    public void spelOpen(){
+    public void toetsOpen(){
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;
         //for loop voor elke vraag uit ArrayList lijstVragen.

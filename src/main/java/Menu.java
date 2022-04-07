@@ -65,13 +65,11 @@ class Menu {
             }
         }
         catch (InputMismatchException e){
-            System.out.println("Voer een getal in.");
-            System.out.println(" ");
+            System.out.println("Voer een getal in." +'\n');
             PrintMenu();
         }
         catch (Exception e){
-            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw.");
-            System.out.println(" ");
+            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw."+ '\n');
             PrintMenu();
         }
         System.out.println();
@@ -109,15 +107,15 @@ class Menu {
             int keuze = scanner.nextInt();
             switch (keuze){
                 case 1:
-                    examenMulti.spel();
+                    examenMulti.toets();
                     PrintMenu();
                     break;
                 case 2:
-                    examenJaNee.spel();
+                    examenJaNee.toets();
                     PrintMenu();
                     break;
                 case 3:
-                    examenOpen.spelOpen();
+                    examenOpen.toetsOpen();
                     PrintMenu();
                     break;
                 case 0:

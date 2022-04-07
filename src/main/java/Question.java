@@ -14,7 +14,6 @@ public class Question {
     }
 
     public ArrayList<String> getAnswers() {
-
         return answers;
     }
 
