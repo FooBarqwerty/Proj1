@@ -14,8 +14,7 @@ public class Question {
     }
 
     public ArrayList<String> getAnswers() {
-        //werkt niet :(
-        //Collections.shuffle(answers);
+
         return answers;
     }
 
@@ -28,7 +27,7 @@ public class Question {
     }
 
     //shuffle answers ArrayList
-    //public void shuffle() {
-    //    Collections.shuffle(this.answers);
-    //}
+    public void shuffle() {
+        Collections.shuffle(this.answers);
+    }
 }

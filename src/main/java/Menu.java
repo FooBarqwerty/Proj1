@@ -1,5 +1,9 @@
 import java.util.*;
 class Menu {
+    private static Examen examenMulti = new Examen("Topografie","Multiple Choice");
+    private static Examen examenJaNee = new Examen("Verkeers Examen", "Ja/Nee");
+    private static Examen examenOpen = new Examen("Topografie", "Open Vragen");
+
 
     public static void PrintMenu(){
         System.out.println("1) Lijst met examens");
@@ -11,16 +15,16 @@ class Menu {
         System.out.println("7) Welke examens heeft student gehaald?");
         System.out.println("8) Welke student heeft de meeste examens gehaald?");
         //Reserved 9 for method for adding new exams
-        System.out.println("9) Examen toevoegen");
+        //System.out.println("9) Examen toevoegen");
         System.out.println("0) Exit");
         System.out.print("Uw Keuze: ");
 
-        Scanner scanner = new Scanner(System.in);
         try{
+            Scanner scanner = new Scanner(System.in);
             int keuze = scanner.nextInt();
             switch (keuze){
                 case 1:
-                    //code
+                    Menu.ListExams();
                     PrintMenu();
                     break;
                 case 2:
@@ -33,8 +37,7 @@ class Menu {
                     PrintMenu();
                     break;
                 case 5:
-                    Examen examen1 = new Examen("Topografie","Multiple Choice");
-                    examen1.spel();
+                    chooseExam();
                     break;
                 case 6:
                     PrintMenu();
@@ -63,7 +66,6 @@ class Menu {
             PrintMenu();
         }
         catch (Exception e){
-            System.out.println(e);
             System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw.");
             System.out.println(" ");
             PrintMenu();
@@ -71,8 +73,10 @@ class Menu {
         System.out.println();
     }
 
-    private void ListExams(){
-
+    public static void ListExams(){
+        System.out.println(examenMulti.toString());
+        System.out.println(examenJaNee.toString());
+        System.out.println(examenOpen.toString());
     }
 
     private void ListStudents(){
@@ -80,6 +84,65 @@ class Menu {
     }
 
     private void BestStudent(){
+
+    }
+
+    public static void chooseExam(){
+
+        System.out.println("Welk examen wilt uw afnemen?");
+        System.out.println("Examen 1: ");
+        System.out.println(examenMulti.toString());
+        System.out.println("Examen 2: ");
+        System.out.println(examenJaNee.toString());
+        System.out.println("Examen 3: ");
+        System.out.println(examenOpen.toString());
+        System.out.println("Voer 0 in om terug naar het menu te gaan.");
+
+        Scanner scanner = new Scanner(System.in);
+
+        try{
+            System.out.println("Voer een getal in:");
+            int keuze = scanner.nextInt();
+            switch (keuze){
+                case 1:
+                    examenMulti.spel();
+                    PrintMenu();
+                    break;
+                case 2:
+                    examenJaNee.spel();
+                    PrintMenu();
+                    break;
+                case 3:
+                    examenOpen.spelOpen();
+                    PrintMenu();
+                    break;
+                case 0:
+                    PrintMenu();
+                    break;
+                default:
+                    System.out.println("Voer een correcte keuze in.");
+                    chooseExam();
+            }
+        }
+        catch (InputMismatchException e){
+            System.out.println("Voer een getal in.");
+            System.out.println(" ");
+            chooseExam();
+        }
+        catch (Exception e){
+            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw.");
+            System.out.println(" ");
+            PrintMenu();
+        }
+        System.out.println();
+    }
+    public static void initializeList(){
+        examenMulti.MultiVragen();
+        examenMulti.setAantalVragen();
+        examenJaNee.JaNeeVragen();
+        examenJaNee.setAantalVragen();
+        examenOpen.OpenVragen();
+        examenOpen.setAantalVragen();
 
     }
 
