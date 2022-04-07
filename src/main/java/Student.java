@@ -32,12 +32,6 @@ public class Student{
         System.out.println("Wat is jouw student nummer?");
         Integer studentNummer = studenten.nextInt();
 
-        for (int i = 0; i < StudentLijst.size(); i++) {
-            while((!(studentNummer > 99999999)) || (!(StudentLijst.contains(studentNummer))){
-                System.out.println("Nog een keer");
-                studenten.nextInt();
-            }
-        }
         StudentLijst.add(new Student(naam, studentNummer));
         //Studenten = NotStudents;
         return StudentLijst;
