@@ -33,7 +33,7 @@ class Menu {
                     Menu.PrintMenu();
                     break;
                 case 3:
-                    awd.NieuweStudent();
+                    Student.addStudentNew();
                     Menu.PrintMenu();
                     PrintMenu();
                     break;
