@@ -19,6 +19,8 @@ class Menu {
         System.out.println("0) Exit");
         System.out.print("Uw Keuze: ");
 
+        Scanner scanner = new Scanner(System.in);
+        Student awd = new Student("dwa", 1221);
         try{
             Scanner scanner = new Scanner(System.in);
             int keuze = scanner.nextInt();
@@ -28,9 +30,12 @@ class Menu {
                     PrintMenu();
                     break;
                 case 2:
-                    PrintMenu();
+                    awd.DisplayList();
+                    Menu.PrintMenu();
                     break;
                 case 3:
+                    awd.NieuweStudent();
+                    Menu.PrintMenu();
                     PrintMenu();
                     break;
                 case 4:
