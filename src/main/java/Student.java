@@ -4,15 +4,14 @@ import java.util.Scanner;
 public class Student{
     private final String Naam;
     private static Integer studentNummer;
-    private ArrayList<Student> Studenten;
-    private Student Studentadd;
+    private ArrayList<Student> StudentLijst;
     private Results results;
 
     public Student(String Naam, Integer studentNummer){
         this.Naam = Naam;
         this.studentNummer = studentNummer;
-        this.Studenten = new ArrayList<>();
-        this.Studentadd = Studentadd;
+        this.StudentLijst = new ArrayList<>();
+
     }
 
     public String getNaam() {
@@ -22,8 +21,6 @@ public class Student{
     public int getStudentNumber() {
         return studentNummer;
     }
-
-
 
     public ArrayList<Student> NieuweStudent(){
         Scanner studenten = new Scanner(System.in);
@@ -35,28 +32,32 @@ public class Student{
         System.out.println("Wat is jouw student nummer?");
         Integer studentNummer = studenten.nextInt();
 
-        for (int i = 0; i < Studenten.size(); i++) {
-            while((!(studentNummer > 99999999)) || (!(Studenten.contains(studentNummer)))){
-                System.out.println("Write it again");
-                studentNummer = studenten.nextInt();
+        for (int i = 0; i < StudentLijst.size(); i++) {
+            while((!(studentNummer > 99999999)) || (!(StudentLijst.contains(studentNummer))){
+                System.out.println("Nog een keer");
+                studenten.nextInt();
             }
         }
-        Studenten.add(new Student(naam, studentNummer));
+        StudentLijst.add(new Student(naam, studentNummer));
         //Studenten = NotStudents;
-        return Studenten;
+        return StudentLijst;
     }
 
     public void DisplayList(){
-
-        for(int i = 0; i < Studenten.size(); i++){
-            System.out.println(Studenten.get(i).getNaam());
-            System.out.println(Studenten.get(i).getStudentNumber());
+        for(int i = 0; i < StudentLijst.size(); i++){
+            System.out.println(StudentLijst.get(i).getNaam());
+            System.out.println(StudentLijst.get(i).getStudentNumber());
         }
         
     }
 
-    public void removeStudent(String studentNummer){
-
+    public void removeStudent(int studentNummer) {
+        if (StudentLijst.contains(studentNummer)) {
+            StudentLijst.remove(studentNummer);
+        }
+        else{
+            System.out.println("Deze student Nummer staat niet in onze systeem");
+        }
     }
 }
 

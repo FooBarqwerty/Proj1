@@ -34,6 +34,9 @@ class Menu {
                     PrintMenu();
                     break;
                 case 4:
+                    Scanner scanner2 = new Scanner(System.in);
+                    int rmv = scanner2.nextInt();
+                    awd.removeStudent(rmv);
                     PrintMenu();
                     break;
                 case 5:
