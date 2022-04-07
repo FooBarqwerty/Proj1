@@ -1,6 +1,6 @@
 public class Results {
-    private int totaalVragen;
-    private int goedeVragen;
+    private int totaalVragen = 10;
+    private int goedeVragen = 3;
     private Boolean geslaagd;
     private static double geslaagdPercentage = 0.55;
 
@@ -18,8 +18,8 @@ public class Results {
         this.geslaagd = geslaagd;
     }
 
-    public void Results(Boolean Geslaagd){
-
+    public void geslaagd(){
+        Double isGeslaagd = Double.valueOf(totaalVragen / goedeVragen);
     }
 }
 
