@@ -22,7 +22,6 @@ class Menu {
         Scanner scanner = new Scanner(System.in);
         Student awd = new Student("dwa", 1221);
         try{
-            Scanner scanner = new Scanner(System.in);
             int keuze = scanner.nextInt();
             switch (keuze){
                 case 1:
