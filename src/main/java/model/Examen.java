@@ -74,6 +74,7 @@ public class Examen {
                              System.out.println("Goed!");
                          } else {
                              System.out.println("Fout!");
+                             System.out.println("Het correcte antwoord was: " + correcteAntwoord);
                          }
                      }
                      System.out.println("Aantal goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + "Vragen");
@@ -84,7 +85,6 @@ public class Examen {
             Menu.PrintMenu();
         }
         System.out.println("Aantal goede antwoorden:" + goede_antwoorden);
-        scanner.close();
     }
     public void toetsOpen(){
         Scanner scanner = new Scanner(System.in);

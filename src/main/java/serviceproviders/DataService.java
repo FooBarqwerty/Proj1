@@ -7,16 +7,17 @@ import java.util.ArrayList;
 
 public class DataService {
     private static ArrayList<Student> StudentLijst = new ArrayList<>();
-    private static ArrayList<Examen> ExamenLijst = new ArrayList<>();
+    private static ArrayList<Examen> Exams = new ArrayList<>();
+
 
     public static void AddExams(){
          Examen examenMulti = new Examen("Topografie","Multiple Choice", 4);
          Examen examenJaNee = new Examen("Verkeers model.Examen", "Ja/Nee",3);
          Examen examenOpen = new Examen("Topografie", "Open Vragen",3);
 
-        ExamenLijst.add(examenMulti);
-        ExamenLijst.add(examenJaNee);
-        ExamenLijst.add(examenOpen);
+        Exams.add(examenMulti);
+        Exams.add(examenJaNee);
+        Exams.add(examenOpen);
 
         examenMulti.MultiVragen();
         examenMulti.setAantalVragen();
@@ -35,6 +36,10 @@ public class DataService {
 
     public static void addNewStudent() {
         StudentLijst.add(StudentService.NieuweStudent());
+    }
+
+    public static ArrayList<Student> getStudentLijst(){
+        return StudentLijst;
     }
 
     public static void DisplayStudentList() {
@@ -64,4 +69,8 @@ public class DataService {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
+    public static ArrayList<Examen> getExamsArrayList() {
+
+        return Exams;
+    }
 }

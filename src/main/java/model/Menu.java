@@ -38,6 +38,7 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 5:
+                    DataService.getExamsArrayList();
                     ViewService.chooseExam();
                     break;
                 case 6:

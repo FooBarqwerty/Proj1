@@ -4,6 +4,7 @@ import model.Examen;
 import model.Student;
 import serviceproviders.DataService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -26,27 +27,27 @@ public class ViewService {
                         "Uw Keuze: "
         );
     }
-    public static void chooseExam(){
 
-        printExamSelection();
+    public static void chooseExam() {
 
+        ExamService.ListExams();
 
         Scanner scanner = new Scanner(System.in);
 
-        try{
+        try {
             System.out.println("Voer een getal in:");
             int keuze = scanner.nextInt();
-            switch (keuze){
+            switch (keuze) {
                 case 1:
-                    //examenMulti.toets();
+                    DataService.getExamsArrayList().get(keuze-1).toets();
                     PrintMenu();
                     break;
                 case 2:
-                    //examenJaNee.toets();
+                    DataService.getExamsArrayList().get(keuze-1).toets();
                     PrintMenu();
                     break;
                 case 3:
-                    //examenOpen.toetsOpen();
+                    DataService.getExamsArrayList().get(keuze-1).toetsOpen();
                     PrintMenu();
                     break;
                 case 0:
@@ -56,22 +57,21 @@ public class ViewService {
                     System.out.println("Voer een correcte keuze in.");
                     chooseExam();
             }
-        }
-        catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Voer een getal in.");
             System.out.println(" ");
             chooseExam();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n   ");
 
             PrintMenu();
         }
         System.out.println();
     }
-
-    private static void printExamSelection(Examen... Exams) {
+}
+   /* private static void printExamSelection(ArrayList... Exams) {
         System.out.println("Welk examen wilt uw afnemen?");
+        ExamService.ListExams();
         for (int i = 0; i <= Exams.length; i++) {
             System.out.println("Examen " + i + " : ");
 
@@ -80,3 +80,6 @@ public class ViewService {
     }
 
 }
+
+    */
+
