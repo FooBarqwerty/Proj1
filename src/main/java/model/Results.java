@@ -1,6 +1,7 @@
 package model;
 
 public class Results {
+    private int getCurrentStudentNummer;
     private int currentStudentNummer;
     private Boolean geslaagd;
 
