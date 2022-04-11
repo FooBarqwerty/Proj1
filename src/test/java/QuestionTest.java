@@ -1,4 +1,4 @@
-import static org.junit.jupiter.api.Assertions.*;
+import model.Question;
 
 class QuestionTest {
     //arrange

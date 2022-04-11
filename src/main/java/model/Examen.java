@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -21,7 +23,7 @@ public class Examen {
     @Override
     public String toString() {
         return  "----------------------------------" + '\n' +
-                "Examen: " + naam + '\n' +
+                "model.Examen: " + naam + '\n' +
                 "TypeOfExam= " + TypeOfExam + '\n' +
                 "aantalVragen: " + aantalVragen + '\n'
                         + "----------------------------------" + '\n';
@@ -126,7 +128,7 @@ public class Examen {
             System.out.println("--------------------------");
             System.out.println("welkom bij het 'toevoegen Examens programma!'");
             System.out.println("Voer een optie in:");
-            System.out.println("1.  Examen toevoegen.");
+            System.out.println("1.  model.Examen toevoegen.");
             System.out.println("2.  Opslaan en terug naar de menu. (Exit)");
 
             Scanner scanner = new Scanner(System.in);
@@ -136,7 +138,7 @@ public class Examen {
                     Menu.PrintMenu();
                     break;
                 case 2:
-                    //Menu.PrintMenu();
+                    //model.Menu.PrintMenu();
                     break;
                 default:
                     //testQuestion();
@@ -152,7 +154,7 @@ public class Examen {
 
     public void MultiVragen() {
         //Plaatsen wij question objects in
-        // Om vragen doorgegeven aan de Question.java constructor en de vraag, met vragenArrayList en String Correcte_antwoord in een ArrayList lijstVragen te zetten
+        // Om vragen doorgegeven aan de model.Question.java constructor en de vraag, met vragenArrayList en String Correcte_antwoord in een ArrayList lijstVragen te zetten
         String vraag = "Wat is de hoofdstad van Nederland?";
         String [] antwoorden = {"Amsterdam",  "Den Haag", "Rotterdam","Eindhoven"};
         String correct_answer = antwoorden [0];

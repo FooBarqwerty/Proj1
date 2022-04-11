@@ -1,10 +1,12 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
 public class Question {
     private String question;
-    public ArrayList<String> answers;
+    private ArrayList<String> answers;
     private String correct_answer;
 
     public Question(String question, String[] answers, String correct_answer) {
