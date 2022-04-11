@@ -9,4 +9,8 @@ public class App {
 	public void examenOpslaan	() {
 
 	}
+	public void initializeLists () {
+
+
+	}
 }

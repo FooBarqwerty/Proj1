@@ -9,11 +9,13 @@ public class Examen {
     public final String naam;
     private String TypeOfExam;
     private Integer aantalVragen;
+    private Integer aantalVragenGoedVoldoende;
     private ArrayList<Question> lijstVragen = new ArrayList<Question>();
 
-    public Examen(String naam, String TypeOfExamen) {
+    public Examen(String naam, String TypeOfExamen, int aantalVragenGoedVoldoende) {
         this.naam = naam;
         this.TypeOfExam = TypeOfExamen;
+        this.aantalVragenGoedVoldoende = aantalVragenGoedVoldoende;
     }
 
     public void setAantalVragen() {
@@ -37,45 +39,46 @@ public class Examen {
 
         //for loop voor elke vraag uit ArrayList lijstVragen.
         try {
-            for (int vraag = 0; vraag < lijstVragen.size(); vraag++) {
-                //shuffled antwoorden voor elke vraag.
-                lijstVragen.get(vraag).shuffle();
+                     for (int vraag = 0; vraag < lijstVragen.size(); vraag++) {
+                         //shuffled antwoorden voor elke vraag.
+                         lijstVragen.get(vraag).shuffle();
 
-                //print vraag
-                System.out.println(lijstVragen.get(vraag).getQuestion());
-                //Voor mogelijke waar/niet waar vragen, multi-vragen. Open vragen komen in een andere methode.
-                int aantalAntwoorden = lijstVragen.get(vraag).getAnswers().size();
+                         //print vraag
+                         System.out.println(lijstVragen.get(vraag).getQuestion());
+                         //Voor mogelijke waar/niet waar vragen, multi-vragen. Open vragen komen in een andere methode.
+                         int aantalAntwoorden = lijstVragen.get(vraag).getAnswers().size();
 
-                //for loop print antwoorden van vraag.
-                for (int antwoord_in_ArrayList = 0; antwoord_in_ArrayList < aantalAntwoorden; antwoord_in_ArrayList++) {
-                    System.out.println("Antwoord " + (antwoord_in_ArrayList + 1) + ": " + lijstVragen.get(vraag).getAnswers().get(antwoord_in_ArrayList));
-                }
+                         //for loop print antwoorden van vraag.
+                         for (int antwoord_in_ArrayList = 0; antwoord_in_ArrayList < aantalAntwoorden; antwoord_in_ArrayList++) {
+                             System.out.println("Antwoord " + (antwoord_in_ArrayList + 1) + ": " + lijstVragen.get(vraag).getAnswers().get(antwoord_in_ArrayList));
+                         }
 
-                //correcte vraag wordt in een string en int gezet
-                String correcteAntwoord = lijstVragen.get(vraag).getCorrect_answer();
-                //TEST System.out.println("Correcte vraag: " + correcteAntwoord);
-                int correcteAntwoordInt = lijstVragen.get(vraag).answers.indexOf(correcteAntwoord);
-                //TEST System.out.println("correcteAntwoordInt" + correcteAntwoordInt);
+                         //correcte vraag wordt in een string en int gezet
+                         String correcteAntwoord = lijstVragen.get(vraag).getCorrect_answer();
+                         //TEST System.out.println("Correcte vraag: " + correcteAntwoord);
+                         int correcteAntwoordInt = lijstVragen.get(vraag).getAnswers().indexOf(correcteAntwoord);
+                         //TEST System.out.println("correcteAntwoordInt" + correcteAntwoordInt);
 
-                //gebruiker moet nu getal invoeren als antwoord op vraag.
-                System.out.println("Voer uw antwoord in: ");
-                int gegevenAntwoordInt = -1;
-                try {
-                    gegevenAntwoordInt = scanner.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Voer een getal in: ");
-                    System.out.println();
-                }
+                         //gebruiker moet nu getal invoeren als antwoord op vraag.
+                         System.out.println("Voer uw antwoord in: ");
+                         int gegevenAntwoordInt = -1;
+                         try {
+                             gegevenAntwoordInt = scanner.nextInt();
+                         } catch (InputMismatchException e) {
+                             System.out.println("Voer een getal in: ");
+                             System.out.println();
+                         }
 
-                if (gegevenAntwoordInt == correcteAntwoordInt + 1) {
-                    goede_antwoorden++;
-                    System.out.println("Goed!");
-                } else {
-                    System.out.println("Fout!");
-                }
-                System.out.println("Goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + "Vragen");
-            }
-        }
+                         if (gegevenAntwoordInt == correcteAntwoordInt + 1) {
+                             goede_antwoorden++;
+                             System.out.println("Goed!");
+                         } else {
+                             System.out.println("Fout!");
+                         }
+                     }
+                     System.out.println("Aantal goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + "Vragen");
+
+                 }
         catch (Exception e) {
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw");
             Menu.PrintMenu();
@@ -93,7 +96,7 @@ public class Examen {
                 System.out.println(lijstVragen.get(vraag).getQuestion());
                 //Voor mogelijke waar/niet waar vragen, multi-vragen. Open vragen komen in een andere methode.
                 int aantalAntwoorden = lijstVragen.get(vraag).getAnswers().size();
-                System.out.println("aantal antwoorden "+aantalAntwoorden);
+                System.out.println("aantal antwoorden "+ aantalAntwoorden);
 
                 //for loop print antwoorden van vraag.
                 for (int antwoord_in_ArrayList = 0; antwoord_in_ArrayList < aantalAntwoorden; antwoord_in_ArrayList++) {
@@ -119,7 +122,6 @@ public class Examen {
         }
         catch (Exception e){
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw");
-            Menu.PrintMenu();
         }
     }
 
