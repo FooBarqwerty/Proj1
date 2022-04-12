@@ -1,7 +1,9 @@
 package model;
 
-public class Results {
-    private int examCode;
+import serviceproviders.DataService;
+
+public class    Results {
+    private String examenNaam;
     private int goedeAntwoorden;
     private int aantalVragenGoedVoldoende;
     private int studentNumber;

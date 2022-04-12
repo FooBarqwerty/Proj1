@@ -81,4 +81,25 @@ public class DataService {
 
 
     }
+
+    public static void DisplayGeslaagdToets(){
+        if (DataService.CurrentStudent().getLijstResults().size() == 0) {
+            System.out.println("U heeft geen toetsen gemaakt.\n");
+        }
+        else {
+            System.out.println("Deze zijn de toetsen die u een voldoende voor heeft:");
+            for (int index = 0; index < DataService.CurrentStudent().getLijstResults().size(); index++) {
+                if (DataService.CurrentStudent().getLijstResults().get(index).getGeslaagd()) {
+                    System.out.println(
+                            "-------------------------\n" +
+                                    "Naam toets: " +
+                                    DataService.CurrentStudent().getLijstResults().get(index).getExamenNaam() + " \n" +
+                                    "Aantal goede antwoorden: " +
+                                    DataService.CurrentStudent().getLijstResults().get(index).getGoedeAntwoorden() + " \n" +
+                                    "U bent geslaagd \n");
+                }
+            }
+        }
+    }
+
 }

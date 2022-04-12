@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Examen {
 
-    public final String naam;
+    public String naam;
     private String TypeOfExam;
     private Integer aantalVragen;
     private Integer aantalVragenGoedVoldoende;

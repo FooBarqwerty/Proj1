@@ -28,7 +28,7 @@ public class Menu {
                     break;
                 case 3:
                     DataService.addNewStudent();
-                    currentStudent = DataService.CurrentStudent();
+                    currentStudent = DataService.CurrentStudentNumber();
                     Menu.PrintMenu();
                     break;
                 case 4:
@@ -77,9 +77,6 @@ public class Menu {
         return currentStudent;
     }
 
-    private void ListStudents(){
-
-    }
 
     private void BestStudent() {
 

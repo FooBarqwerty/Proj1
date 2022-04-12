@@ -69,6 +69,8 @@ public class ExamService {
         }
         System.out.println("Aantal goede antwoorden:" + goede_antwoorden);
     }
+
+
     public static void toetsOpen(Examen examen){
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;
@@ -96,6 +98,8 @@ public class ExamService {
                 }
             }
             System.out.println("Aantal correcte antwoorden: " + goede_antwoorden + " van de " + examen.getAantalVragen() + "\n");
+            ResultsService.addResult(examen.getNaam(), goede_antwoorden, aantalVragenGoedVoldoende);
+
         }
         catch (Exception e){
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw\n");
