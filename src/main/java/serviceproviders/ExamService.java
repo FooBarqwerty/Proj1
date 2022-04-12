@@ -61,7 +61,7 @@ public class ExamService {
             }
 
             System.out.println("Aantal goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + " Vragen\n");
-
+            ResultsService.addResult(examen.getNaam(), goede_antwoorden, aantalVragenGoedVoldoende);
         }
         catch (Exception e) {
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw\n");
@@ -74,6 +74,8 @@ public class ExamService {
     public static void toetsOpen(Examen examen){
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;
+        int aantalVragenGoedVoldoende = examen.getAantalVragenGoedVoldoende();
+
         //for loop voor elke vraag uit ArrayList lijstVragen.
         try {
             for (int vraag = 0; vraag < examen.getLijstVragen().size(); vraag++) {

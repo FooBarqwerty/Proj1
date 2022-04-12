@@ -21,6 +21,10 @@ public class Examen {
         examCode = setExamCode();
     }
 
+    public String getNaam() {
+        return naam;
+    }
+
     public void setAantalVragen() {
         this.aantalVragen = lijstVragen.size();
     }

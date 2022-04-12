@@ -9,12 +9,11 @@ import java.util.ArrayList;
 public class DataService {
     private static ArrayList<Student> StudentLijst = new ArrayList<>();
     private static ArrayList<Examen> Exams = new ArrayList<>();
-    private static ArrayList<Results> ResultsList = new ArrayList<>();
 
     public static void AddExams(){
          Examen examenMulti = new Examen("Topografie","Multiple Choice", 4);
-         Examen examenJaNee = new Examen("Verkeers model.Examen", "Ja/Nee",3);
-         Examen examenOpen = new Examen("Topografie", "Open Vragen",3);
+         Examen examenJaNee = new Examen("Verkeers Examen", "Ja/Nee",3);
+         Examen examenOpen = new Examen("Topografie Open vragen", "Open Vragen",3);
 
         Exams.add(examenMulti);
         Exams.add(examenJaNee);
@@ -72,14 +71,35 @@ public class DataService {
             }
         }
     }
+    public static Student CurrentStudent() {
+        return StudentLijst.get(StudentLijst.size() - 1);
+    }
 
-    public static int CurrentStudent() {
+    public static int CurrentStudentNumber() {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
     public static void  initializeResultsList(){
+        //Results results = new Results(
+    }
 
+    public static void seeResultsLastTest(){
+        //System.out.println(DataService.CurrentStudent().getLijstResults().get(DataService.CurrentStudent().getLijstResults().size()-1));
 
+        System.out.println(
+                "De resultaat van uw laatste gemaakt toets: \n\n" +
+                "Naam toets: "  +
+                DataService.CurrentStudent().getLijstResults().get(DataService.CurrentStudent().getLijstResults().size()-1).getExamenNaam() + " \n" +
+                "Aantal goede antwoorden: " +
+                DataService.CurrentStudent().getLijstResults().get(DataService.CurrentStudent().getLijstResults().size()-1).getGoedeAntwoorden() + " \n"
+        );
+
+        if (DataService.CurrentStudent().getLijstResults().get(DataService.CurrentStudent().getLijstResults().size()-1).getGeslaagd()){
+            System.out.println("U bent geslaagd. \n");
+        }
+        else {
+            System.out.println("U bent niet geslaagd. \n");
+        }
     }
 
     public static void DisplayGeslaagdToets(){

@@ -40,9 +40,11 @@ public class Menu {
                     ViewService.chooseExam();
                     break;
                 case 6:
+                    DataService.seeResultsLastTest();
                     PrintMenu();
                     break;
                 case 7:
+                    DataService.DisplayGeslaagdToets();
                     PrintMenu();
                     break;
                 case 8:

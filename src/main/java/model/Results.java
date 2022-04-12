@@ -6,14 +6,12 @@ public class    Results {
     private String examenNaam;
     private int goedeAntwoorden;
     private int aantalVragenGoedVoldoende;
-    private int studentNumber;
     private Boolean geslaagd;
 
-    public Results(int examCode, int goedeAntwoorden, int aantalVragenGoedVoldoende, int studentNumber) {
-        this.examCode = examCode;
+    public Results(String examenNaam, int goedeAntwoorden, int aantalVragenGoedVoldoende) {
+        this.examenNaam = examenNaam;
         this.goedeAntwoorden = goedeAntwoorden;
         this.aantalVragenGoedVoldoende = aantalVragenGoedVoldoende;
-        this.studentNumber = studentNumber;
         setGeslaagd(this.geslaagd);
     }
 
@@ -29,13 +27,24 @@ public class    Results {
         return geslaagd;
     }
 
+    public String getExamenNaam() {
+        return examenNaam;
+    }
+
+    public int getGoedeAntwoorden() {
+        return goedeAntwoorden;
+    }
+
+    public int getAantalVragenGoedVoldoende() {
+        return aantalVragenGoedVoldoende;
+    }
+
     @Override
     public String toString() {
-        return "Results{" +
-                "examCode='" + examCode + '\'' +
-                ", goedeAntwoorden=" + goedeAntwoorden +
-                ", studentNumber=" + studentNumber +
-                ", geslaagd=" + geslaagd +
+        return "Uw toets resultaten: \n" +
+                "Toets naam: " + examenNaam + '\n' +
+                "Aantal Goede Antwoorden = " + goedeAntwoorden + '\n' +
+                "" + geslaagd +
                 '}';
     }
 }
