@@ -43,6 +43,10 @@ public class Examen {
         return aantalVragen;
     }
 
+    public Integer getAantalVragenGoedVoldoende() {
+        return aantalVragenGoedVoldoende;
+    }
+
     public static void examenToevoegen(){
         try {
             System.out.println("--------------------------");

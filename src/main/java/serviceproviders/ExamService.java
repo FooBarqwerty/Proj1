@@ -7,6 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExamService {
+
     public static void ListExams() {
         for (int i = 0; i < DataService.getExamsArrayList().size(); i++) {
             System.out.println("Examen: " + (i + 1) + " \n" + DataService.getExamsArrayList().get(i).toString());
@@ -17,6 +18,7 @@ public class ExamService {
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;
         int totaal_vragen = examen.getAantalVragen();
+        int aantalVragenGoedVoldoende = examen.getAantalVragenGoedVoldoende();
 
         //for loop voor elke vraag uit ArrayList lijstVragen.
         try {
@@ -57,6 +59,7 @@ public class ExamService {
                     System.out.println("Het correcte antwoord was: " + correcteAntwoord +"\n");
                 }
             }
+
             System.out.println("Aantal goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + " Vragen\n");
 
         }

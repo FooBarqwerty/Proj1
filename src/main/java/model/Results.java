@@ -1,24 +1,40 @@
 package model;
 
 public class Results {
-    private int getCurrentStudentNummer;
-    private int currentStudentNummer;
+    private String examenNaam;
+    private int goedeAntwoorden;
+    private int aantalVragenGoedVoldoende;
+    private int studentNumber;
     private Boolean geslaagd;
 
-    public Results() {
+    public Results(String examenNaam, int goedeAntwoorden, int aantalVragenGoedVoldoende, int studentNumber) {
+        this.examenNaam = examenNaam;
+        this.goedeAntwoorden = goedeAntwoorden;
+        this.aantalVragenGoedVoldoende = aantalVragenGoedVoldoende;
+        this.studentNumber = studentNumber;
+        setGeslaagd(this.geslaagd);
+    }
 
+    public void setGeslaagd(Boolean geslaagd) {
+        if (goedeAntwoorden > aantalVragenGoedVoldoende)
+            this.geslaagd = true;
+        else {
+            this.geslaagd = false;
+        }
     }
 
     public Boolean getGeslaagd() {
         return geslaagd;
     }
 
-    public void setGeslaagd(Boolean geslaagd) {
-        this.geslaagd = geslaagd;
-    }
-
-    public void geslaagd(String naam, int aantalVragen, int aantalVragenGoedVoldoende){
-
+    @Override
+    public String toString() {
+        return "Results{" +
+                "examenNaam='" + examenNaam + '\'' +
+                ", goedeAntwoorden=" + goedeAntwoorden +
+                ", studentNumber=" + studentNumber +
+                ", geslaagd=" + geslaagd +
+                '}';
     }
 }
 

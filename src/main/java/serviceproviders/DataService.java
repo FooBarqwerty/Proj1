@@ -1,5 +1,6 @@
 package serviceproviders;
 
+import model.Results;
 import model.Student;
 import model.Examen;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class DataService {
     private static ArrayList<Student> StudentLijst = new ArrayList<>();
     private static ArrayList<Examen> Exams = new ArrayList<>();
-
+    private static ArrayList<Results> ResultsList = new ArrayList<>();
 
     public static void AddExams(){
          Examen examenMulti = new Examen("Topografie","Multiple Choice", 4);
@@ -76,4 +77,7 @@ public class DataService {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
+    public static void  initializeResultsList(){
+
+    }
 }
