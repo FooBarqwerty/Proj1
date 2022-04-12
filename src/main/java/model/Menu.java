@@ -53,7 +53,7 @@ public class Menu {
                 case 9:
                     Examen.examenToevoegen();
                     break;
-                case 0:
+                    case 0:
                     System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
                     System.exit(0); // 0 for successful termination, 0 >for unsuccessful termination (What does it mean?)
                     break;
