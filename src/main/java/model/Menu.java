@@ -9,8 +9,6 @@ import java.util.*;
 
 public class Menu {
 
-    private static Student student1 = new Student("John", 1234567);
-    private static Student student2 = new Student("John Snow", 1234568);
     private static int currentStudent;
 
 
@@ -87,10 +85,5 @@ public class Menu {
 
     }
 
-
-    public static void initializeList(){
-        DataService.addStudent(student1);
-        DataService.addStudent(student2);
-    }
 
 }

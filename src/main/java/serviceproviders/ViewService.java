@@ -29,41 +29,37 @@ public class ViewService {
     }
 
     public static void chooseExam() {
-
         ExamService.ListExams();
-
         Scanner scanner = new Scanner(System.in);
 
         try {
-            System.out.println("Voer een getal in:");
+            System.out.println("Voer uw keuze in met een getal: ");
             int keuze = scanner.nextInt();
             switch (keuze) {
                 case 1:
-                    DataService.getExamsArrayList().get(keuze-1).toets();
+                    ExamService.toets(DataService.getExamsArrayList().get(keuze-1));
                     PrintMenu();
                     break;
                 case 2:
-                    DataService.getExamsArrayList().get(keuze-1).toets();
+                    ExamService.toets(DataService.getExamsArrayList().get(keuze-1));
                     PrintMenu();
                     break;
                 case 3:
-                    DataService.getExamsArrayList().get(keuze-1).toetsOpen();
+                    ExamService.toetsOpen(DataService.getExamsArrayList().get(keuze-1));
                     PrintMenu();
                     break;
                 case 0:
                     PrintMenu();
                     break;
                 default:
-                    System.out.println("Voer een correcte keuze in.");
+                    System.out.println("\nVoer een correcte keuze in.\n");
                     chooseExam();
             }
         } catch (InputMismatchException e) {
-            System.out.println("Voer een getal in.");
-            System.out.println(" ");
+            System.out.println("\nVoer een getal in.\n");
             chooseExam();
         } catch (Exception e) {
-            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n   ");
-
+            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n");
             PrintMenu();
         }
         System.out.println();

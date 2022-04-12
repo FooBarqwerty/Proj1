@@ -19,16 +19,23 @@ public class DataService {
         Exams.add(examenJaNee);
         Exams.add(examenOpen);
 
-        examenMulti.MultiVragen();
+        ExamService.MultiVragen(examenMulti);
         examenMulti.setAantalVragen();
-        examenJaNee.JaNeeVragen();
+        ExamService.JaNeeVragen(examenJaNee);
         examenJaNee.setAantalVragen();
-        examenOpen.OpenVragen();
+        ExamService.OpenVragen(examenOpen);
         examenOpen.setAantalVragen();
-
+    }
+    public static ArrayList<Examen> getExamsArrayList() {
+        return Exams;
     }
 
-
+    public static void initilizeStudents(){
+        Student student1 = new Student("John", 1234567);
+        Student student2 = new Student("John Snow", 1234568);
+        DataService.addStudent(student1);
+        DataService.addStudent(student2);
+    }
 
     public static void addStudent(Student student) {
         StudentLijst.add(student);
@@ -43,12 +50,12 @@ public class DataService {
     }
 
     public static void DisplayStudentList() {
-        for (int i = 0; i < StudentLijst.size(); i++) {
+        for (Student student : StudentLijst) {
             System.out.println("_______________________");
             System.out.print("Naam: ");
-            System.out.println(StudentLijst.get(i).getNaam());
+            System.out.println(student.getNaam());
             System.out.print("Studenten Nummer: ");
-            System.out.println(StudentLijst.get(i).getStudentNumber());
+            System.out.println(student.getStudentNumber());
             System.out.println("------------------------");
         }
 
@@ -69,8 +76,4 @@ public class DataService {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
-    public static ArrayList<Examen> getExamsArrayList() {
-
-        return Exams;
-    }
 }

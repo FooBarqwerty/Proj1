@@ -35,10 +35,25 @@ public class StudentService {
         return studentNumber;
     }
 
-    public  static void removeStudent(){
+    public static void removeStudent(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer de studenten nummer die uw wilt verwijderen: ");
         int verwijderenStudent = scanner.nextInt();
         DataService.removeStudent(verwijderenStudent);
     }
+
 }
+
+/*
+    public static int switchStudent(int studentNummer){
+        for(int i = 0; i < StudentLijst.size(); i++) {
+            if (studentNummer == StudentLijst.get(i).getStudentNumber()) {
+                System.out.println(StudentLijst.get(i).getStudentNumber());
+                return  StudentLijst.get(i).getStudentNumber();
+            }
+        }
+        return 0;
+    }
+}
+
+ */

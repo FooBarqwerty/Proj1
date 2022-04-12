@@ -37,21 +37,6 @@ public class Student {
     public int getStudentNumber() {
         return studentNummer;
     }
-
-
 }
-/*
-    public static int switchStudent(int studentNummer){
-        for(int i = 0; i < StudentLijst.size(); i++) {
-            if (studentNummer == StudentLijst.get(i).getStudentNumber()) {
-                System.out.println(StudentLijst.get(i).getStudentNumber());
-                return  StudentLijst.get(i).getStudentNumber();
-            }
-        }
-        return 0;
-    }
-}
-
- */
 
 
