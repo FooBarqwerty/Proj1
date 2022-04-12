@@ -10,6 +10,7 @@ public class Examen {
     private String TypeOfExam;
     private Integer aantalVragen;
     private Integer aantalVragenGoedVoldoende;
+    private static Integer examCode = 007 ;
     private ArrayList<Question> lijstVragen = new ArrayList<>();
 
     public Examen(String naam, String TypeOfExamen, int aantalVragenGoedVoldoende) {
@@ -20,6 +21,14 @@ public class Examen {
 
     public void setAantalVragen() {
         this.aantalVragen = lijstVragen.size();
+    }
+
+    public static Integer getExamCode() {
+        return examCode;
+    }
+
+    public static void setExamCode(Integer examCode) {
+        Examen.examCode = examCode;
     }
 
     @Override

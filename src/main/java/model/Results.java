@@ -16,7 +16,7 @@ public class Results {
     }
 
     public void setGeslaagd(Boolean geslaagd) {
-        if (goedeAntwoorden > aantalVragenGoedVoldoende)
+        if (goedeAntwoorden >= aantalVragenGoedVoldoende)
             this.geslaagd = true;
         else {
             this.geslaagd = false;
