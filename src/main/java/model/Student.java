@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Student {
     private String Naam;
     private Integer studentNummer;
-    private Results results;
+    private ArrayList<Results> lijstResults = new ArrayList<>();
 
 
     public Student(String Naam, Integer studentNummer) {
@@ -16,6 +16,14 @@ public class Student {
     }
 
     public Student() {
+    }
+
+    public ArrayList<Results> getLijstResults() {
+        return lijstResults;
+    }
+
+    public void setLijstResults(ArrayList<Results> lijstResults) {
+        this.lijstResults = lijstResults;
     }
 
     public void setStudentNummer(Integer studentNummer) {
@@ -27,7 +35,7 @@ public class Student {
     }
 
     public void setResults(Results results) {
-        this.results = results;
+        this.lijstResults.add(results);
     }
 
     public String getNaam() {
@@ -37,6 +45,7 @@ public class Student {
     public int getStudentNumber() {
         return studentNummer;
     }
+
 }
 
 

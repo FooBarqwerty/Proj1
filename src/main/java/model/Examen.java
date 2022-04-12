@@ -10,25 +10,19 @@ public class Examen {
     private String TypeOfExam;
     private Integer aantalVragen;
     private Integer aantalVragenGoedVoldoende;
-    private static Integer examCode = 007 ;
+    private static Integer uniqueExamCode = 007 ;
+    private Integer examCode;
     private ArrayList<Question> lijstVragen = new ArrayList<>();
 
     public Examen(String naam, String TypeOfExamen, int aantalVragenGoedVoldoende) {
         this.naam = naam;
         this.TypeOfExam = TypeOfExamen;
         this.aantalVragenGoedVoldoende = aantalVragenGoedVoldoende;
+        examCode = setExamCode();
     }
 
     public void setAantalVragen() {
         this.aantalVragen = lijstVragen.size();
-    }
-
-    public static Integer getExamCode() {
-        return examCode;
-    }
-
-    public static void setExamCode(Integer examCode) {
-        Examen.examCode = examCode;
     }
 
     @Override
@@ -47,6 +41,17 @@ public class Examen {
     public void setQuestionLijstVragen(Question lijstVragen) {
         this.lijstVragen.add(lijstVragen);
     }
+
+    public static Integer setExamCode() {
+        Integer examenCode = uniqueExamCode;
+        uniqueExamCode++;
+        return examenCode;
+    }
+
+    public Integer getExamCode() {
+        return examCode;
+    }
+
 
     public Integer getAantalVragen() {
         return aantalVragen;

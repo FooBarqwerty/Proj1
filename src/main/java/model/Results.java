@@ -1,14 +1,14 @@
 package model;
 
 public class Results {
-    private String examenNaam;
+    private int examCode;
     private int goedeAntwoorden;
     private int aantalVragenGoedVoldoende;
     private int studentNumber;
     private Boolean geslaagd;
 
-    public Results(String examenNaam, int goedeAntwoorden, int aantalVragenGoedVoldoende, int studentNumber) {
-        this.examenNaam = examenNaam;
+    public Results(int examCode, int goedeAntwoorden, int aantalVragenGoedVoldoende, int studentNumber) {
+        this.examCode = examCode;
         this.goedeAntwoorden = goedeAntwoorden;
         this.aantalVragenGoedVoldoende = aantalVragenGoedVoldoende;
         this.studentNumber = studentNumber;
@@ -30,7 +30,7 @@ public class Results {
     @Override
     public String toString() {
         return "Results{" +
-                "examenNaam='" + examenNaam + '\'' +
+                "examCode='" + examCode + '\'' +
                 ", goedeAntwoorden=" + goedeAntwoorden +
                 ", studentNumber=" + studentNumber +
                 ", geslaagd=" + geslaagd +
