@@ -35,7 +35,9 @@ public class Menu {
                     Menu.PrintMenu();
                     break;
                 case 4:
-                    DataService.removeStudent();
+                    System.out.print("\n------------------------\nVoer de studenten nummer die uw wilt verwijderen: ");
+                    int verwijderenStudent = scanner.nextInt();
+                    DataService.removeStudent(verwijderenStudent);
                     PrintMenu();
                     break;
                 case 5:

@@ -70,13 +70,10 @@ public class DataService {
 
     }
 
-    public static void removeStudent() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\n------------------------\nVoer de studenten nummer die uw wilt verwijderen: ");
+    public static void removeStudent(int studentNumber) {
         Boolean verwijderCheck= false;
-        int verwijderenStudent = scanner.nextInt();
         for (int i = 0; i < StudentLijst.size(); i++) {
-            if (StudentLijst.get(i).getStudentNumber() == verwijderenStudent) {
+            if (StudentLijst.get(i).getStudentNumber() == studentNumber) {
                 StudentLijst.remove(i);
                 System.out.println("Student verwijderd\n");
                 verwijderCheck = true;
