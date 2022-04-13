@@ -34,8 +34,8 @@ public class Examen {
         return  "----------------------------------" + '\n' +
                 "model.lijstVragen: " + naam + '\n' +
                 "TypeOfExam= " + TypeOfExam + '\n' +
-                "aantalVragen: " + aantalVragen + '\n'
-                        + "----------------------------------" + '\n';
+                "aantalVragen: " + aantalVragen + '\n' +
+                "--------------------------------" + '\n';
     }
 
     public ArrayList<Question> getLijstVragen() {

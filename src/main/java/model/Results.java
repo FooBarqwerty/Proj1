@@ -2,7 +2,7 @@ package model;
 
 import serviceproviders.DataService;
 
-public class    Results {
+public class Results {
     private String examenNaam;
     private int goedeAntwoorden;
     private int aantalVragenGoedVoldoende;

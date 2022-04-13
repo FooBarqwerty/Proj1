@@ -4,8 +4,8 @@ import serviceproviders.DataService;
 public class App {
 
 	public static void main(String[] args){
-		DataService.initilizeStudents();
 		DataService.AddExams();
+		DataService.initilizeStudents();
 		Menu.PrintMenu();
 	}
 	public void examenOpslaan	() {

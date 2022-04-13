@@ -48,6 +48,7 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 8:
+                    DataService.displayStudentRank();
                     PrintMenu();
                     break;
                 case 9:

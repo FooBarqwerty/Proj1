@@ -70,7 +70,6 @@ public class ExamService {
         System.out.println("Aantal goede antwoorden:" + goede_antwoorden);
     }
 
-
     public static void toetsOpen(Examen examen){
         Scanner scanner = new Scanner(System.in);
         int goede_antwoorden = 0;

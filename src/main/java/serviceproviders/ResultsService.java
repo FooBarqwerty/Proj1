@@ -12,8 +12,4 @@ public class ResultsService {
         int studentNumber = DataService.CurrentStudentNumber();
         return studentNumber;
     }
-
-
-
-
 }

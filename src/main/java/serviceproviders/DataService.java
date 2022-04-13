@@ -33,8 +33,24 @@ public class DataService {
     public static void initilizeStudents(){
         Student student1 = new Student("John", 1234567);
         Student student2 = new Student("John Snow", 1234568);
+        Student student3 = new Student("John Snows From the mountains", 1236969);
+
         DataService.addStudent(student1);
+        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+
         DataService.addStudent(student2);
+        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+        DataService.addStudent(student3);
+        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+
     }
 
     public static void addStudent(Student student) {
@@ -79,6 +95,16 @@ public class DataService {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
+    public static int setCurrentStudent(Integer studentNumber) {
+        for (Student student:
+             StudentLijst) {
+            if (student.getStudentNumber() == studentNumber){
+                return studentNumber;
+            }
+        }
+        return -1;
+    }
+
     public static void  initializeResultsList(){
         //Results results = new Results(
     }
@@ -116,10 +142,41 @@ public class DataService {
                                     DataService.CurrentStudent().getLijstResults().get(index).getExamenNaam() + " \n" +
                                     "Aantal goede antwoorden: " +
                                     DataService.CurrentStudent().getLijstResults().get(index).getGoedeAntwoorden() + " \n" +
-                                    "U bent geslaagd \n");
+                                    "U bent geslaagd \n"
+                    );
                 }
             }
         }
     }
+    public static void displayStudentRank(){
+        ArrayList<Student> arrayListBestStudents = new ArrayList<>();
+        int highScoreInt = 0;
+        int studentScoreInt = 0;
+        for (Student student:
+                DataService.StudentLijst
+        ) {
 
+            for (Results results:
+                    student.getLijstResults()
+            ) {
+                if (results.getGeslaagd()){
+                    studentScoreInt++;
+                }
+            }
+
+            if (studentScoreInt >= highScoreInt) {
+                arrayListBestStudents.add(student);
+                if (studentScoreInt > highScoreInt) {
+                    arrayListBestStudents.clear();
+                    arrayListBestStudents.add(student);
+                    highScoreInt = studentScoreInt;
+                }
+                studentScoreInt=0;
+            }
+        }
+        for (Student bestStudent:
+             arrayListBestStudents) {
+            System.out.println("Studenen Naam: " +bestStudent.getNaam() + "\nStudenten Nummer: " + bestStudent.getStudentNumber() +"\n");
+        }
+    }
 }
