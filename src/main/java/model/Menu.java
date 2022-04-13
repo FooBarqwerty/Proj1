@@ -52,7 +52,10 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 9:
-                    Examen.examenToevoegen();
+                    Scanner scanner2 = new Scanner(System.in);
+                    int input = scanner.nextInt();
+                    DataService.setCurrentStudent(input);
+
                     break;
                     case 0:
                     System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");

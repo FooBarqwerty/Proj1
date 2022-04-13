@@ -5,15 +5,16 @@ import model.Student;
 import model.Examen;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataService {
     private static ArrayList<Student> StudentLijst = new ArrayList<>();
     private static ArrayList<Examen> Exams = new ArrayList<>();
 
-    public static void AddExams(){
-         Examen examenMulti = new Examen("Topografie","Multiple Choice", 4);
-         Examen examenJaNee = new Examen("Verkeers Examen", "Ja/Nee",3);
-         Examen examenOpen = new Examen("Topografie Open vragen", "Open Vragen",3);
+    public static void AddExams() {
+        Examen examenMulti = new Examen("Topografie", "Multiple Choice", 4);
+        Examen examenJaNee = new Examen("Verkeers Examen", "Ja/Nee", 3);
+        Examen examenOpen = new Examen("Topografie Open vragen", "Open Vragen", 3);
 
         Exams.add(examenMulti);
         Exams.add(examenJaNee);
@@ -27,28 +28,29 @@ public class DataService {
         examenOpen.setAantalVragen();
 
     }
+
     public static ArrayList<Examen> getExamsArrayList() {
         return Exams;
     }
 
-    public static void initilizeStudents(){
+    public static void initilizeStudents() {
         Student student1 = new Student("John", 1234567);
         Student student2 = new Student("John Snow", 1234568);
         Student student3 = new Student("John Snows From the mountains", 1236969);
 
         DataService.addStudent(student1);
-        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(0).getNaam(), 4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(), 3, Exams.get(1).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(2).getNaam(), 4, Exams.get(2).getAantalVragenGoedVoldoende());
 
         DataService.addStudent(student2);
-        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
-        DataService.addStudent(student3);
-        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(0).getNaam(), 4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(), 3, Exams.get(1).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(2).getNaam(), 4, Exams.get(2).getAantalVragenGoedVoldoende());
+        //DataService.addStudent(student3);
+        //ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
+        //ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
+        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
         //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
         //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
 
@@ -62,7 +64,7 @@ public class DataService {
         StudentLijst.add(StudentService.NieuweStudent());
     }
 
-    public static ArrayList<Student> getStudentLijst(){
+    public static ArrayList<Student> getStudentLijst() {
         return StudentLijst;
     }
 
@@ -88,6 +90,7 @@ public class DataService {
             }
         }
     }
+
     public static Student CurrentStudent() {
         return StudentLijst.get(StudentLijst.size() - 1);
     }
@@ -96,18 +99,27 @@ public class DataService {
         return StudentLijst.get(StudentLijst.size() - 1).getStudentNumber();
     }
 
-    public static int setCurrentStudent(Integer studentNumber) {
-        for (Student student:
-             StudentLijst) {
-            if (student.getStudentNumber() == studentNumber){
-                return studentNumber;
-            }
-        }
-        return -1;
+    public static Student ChooseCurrentStudent(int choice) {
+        return StudentLijst.get(choice);
     }
 
+
+    public static Student setCurrentStudent(Integer studentNumber) {
+
+        for (int index = 0; index < StudentLijst.size(); index++) {
+            if (StudentLijst.get(index).getStudentNumber() == studentNumber) {
+                return StudentLijst.get(index);
+
+            }
+
+        }
+        System.out.println("Gebruiker bestaat niet. \n Probeer opnieuw.");
+        return null;
+    }
+
+
     public static void  initializeResultsList(){
-        //Results results = new Results(
+
     }
 
     public static void seeResultsLastTest(){

@@ -8,6 +8,7 @@ class ExamServiceTest {
 
     @Test
     void listExams() {
+
     }
 
     @Test

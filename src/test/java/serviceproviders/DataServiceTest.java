@@ -16,17 +16,13 @@ class DataServiceTest {
     void addExams() {
         //arrange
         var addExamsTest = new DataService();
-        Examen examenMulti = new Examen("Topografie","Multiple Choice", 4);
-        Examen examenJaNee = new Examen("Verkeers Examen", "Ja/Nee",3);
-        Examen examenOpen = new Examen("Topografie Open vragen", "Open Vragen",3);
+        var expectedAnswer = true;
 
         //act
         addExamsTest.AddExams();
 
         //Assert
-        assertFalse(addExamsTest.getExamsArrayList().contains(examenMulti));
-        assertFalse(addExamsTest.getExamsArrayList().contains(examenJaNee));
-        assertFalse(addExamsTest.getExamsArrayList().contains(examenOpen));
+        assertEquals(!(addExamsTest.getExamsArrayList().isEmpty()), expectedAnswer);
 
     }
 
@@ -34,12 +30,13 @@ class DataServiceTest {
     void initilizeStudents() {
         //arrange
         DataService IS = new DataService();
+        var expectedAnswer = true;
 
         //act
         IS.initilizeStudents();
 
         //assert
-        assertTrue(!(IS.getStudentLijst().isEmpty()));
+        assertEquals(!(IS.getStudentLijst().isEmpty()), expectedAnswer);
     }
 
     @Test
@@ -83,6 +80,20 @@ class DataServiceTest {
 
     @Test
     void currentStudent() {
+        //arrange
+        DataService CS = new DataService();
+        Student student = new Student("Jeffery", 372949);
+        Student student2 = new Student("Jeff", 2020202);
+        CS.addStudent(student);
+        CS.addStudent(student2);
+        Student expectedAnswer = student2;
+
+        //act
+        CS.CurrentStudent();
+
+        //assert
+        assertEquals(CS.CurrentStudent(), expectedAnswer);
+
     }
 
     @Test
@@ -95,5 +106,9 @@ class DataServiceTest {
 
     @Test
     void displayGeslaagdToets() {
+    }
+    @Test
+    void displayStudentRank(){
+
     }
 }
