@@ -1,8 +1,13 @@
+package serviceproviders;
+
 import org.junit.jupiter.api.Test;
 
-public class ExamenTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExamServiceTest {
+
     @Test
-    void testToString() {
+    void listExams() {
     }
 
     @Test
@@ -11,10 +16,6 @@ public class ExamenTest {
 
     @Test
     void toetsOpen() {
-    }
-
-    @Test
-    void examenToevoegen() {
     }
 
     @Test
@@ -28,9 +29,4 @@ public class ExamenTest {
     @Test
     void openVragen() {
     }
-    //arrange
-
-    //act
-
-    //assert
 }
