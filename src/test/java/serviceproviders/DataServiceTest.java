@@ -45,16 +45,20 @@ class DataServiceTest {
     @Test
     void addStudent() {
         //arrange
-
+        DataService addStudentTest = new DataService();
+        Student student = new Student("Jeffery", 372949);
+        var expectedAnswer = true;
+        //act
+        addStudentTest.addStudent(student);
 
         //assert
+        assertEquals(addStudentTest.getStudentLijst().contains(student), expectedAnswer);
 
-
-        //
     }
 
     @Test
     void addNewStudent() {
+     //NA
     }
 
     @Test
@@ -63,6 +67,18 @@ class DataServiceTest {
 
     @Test
     void removeStudent() {
+        //arrange
+        Student student = new Student("Jeffery",20971);
+        DataService RS = new DataService();
+        RS.addStudent(student);
+        var expectedAnswer = false;
+
+        //act
+        RS.removeStudent(20971);
+
+        //assert
+        assertEquals(RS.getStudentLijst().contains(student), expectedAnswer);
+
     }
 
     @Test
