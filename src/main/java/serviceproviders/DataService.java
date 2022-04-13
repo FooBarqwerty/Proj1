@@ -39,21 +39,11 @@ public class DataService {
         Student student3 = new Student("John Snows From the mountains", 1236969);
 
         DataService.addStudent(student1);
-        ResultsService.addResult(Exams.get(0).getNaam(), 4, Exams.get(0).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(1).getNaam(), 3, Exams.get(1).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(2).getNaam(), 4, Exams.get(2).getAantalVragenGoedVoldoende());
-
+        initializeResultsList();
         DataService.addStudent(student2);
-        ResultsService.addResult(Exams.get(0).getNaam(), 4, Exams.get(0).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(1).getNaam(), 3, Exams.get(1).getAantalVragenGoedVoldoende());
-        ResultsService.addResult(Exams.get(2).getNaam(), 4, Exams.get(2).getAantalVragenGoedVoldoende());
-        //DataService.addStudent(student3);
-        //ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
-        //ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
-        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
-        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
-        //ResultsService.addResult(Exams.get(2).getNaam(),4, Exams.get(2).getAantalVragenGoedVoldoende());
-
+        initializeResultsList();
+        DataService.addStudent(student3);
+        initializeResultsList();
     }
 
     public static void addStudent(Student student) {
@@ -70,7 +60,7 @@ public class DataService {
 
     public static void DisplayStudentList() {
         for (Student student : StudentLijst) {
-            System.out.println("_______________________");
+            System.out.println("------------------------");
             System.out.print("Naam: ");
             System.out.println(student.getNaam());
             System.out.print("Studenten Nummer: ");
@@ -80,14 +70,21 @@ public class DataService {
 
     }
 
-    public static void removeStudent(int studentNummer) {
+    public static void removeStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n------------------------\nVoer de studenten nummer die uw wilt verwijderen: ");
+        Boolean verwijderCheck= false;
+        int verwijderenStudent = scanner.nextInt();
         for (int i = 0; i < StudentLijst.size(); i++) {
-            if (StudentLijst.get(i).getStudentNumber() == studentNummer) {
+            if (StudentLijst.get(i).getStudentNumber() == verwijderenStudent) {
                 StudentLijst.remove(i);
-                System.out.println("model.Student is verwijderd");
-            } else {
-                System.out.println("Deze student Nummer staat niet in onze systeem");
+                System.out.println("Student verwijderd\n");
+                verwijderCheck = true;
+                break;
             }
+        }
+        if (verwijderCheck == false){
+            System.out.println("Deze studentnummer staat niet in onze systeem");
         }
     }
 
@@ -119,7 +116,8 @@ public class DataService {
 
 
     public static void  initializeResultsList(){
-
+        ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
+        ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
     }
 
     public static void seeResultsLastTest(){
