@@ -9,9 +9,6 @@ import java.util.*;
 
 public class Menu {
 
-    private static int currentStudent;
-
-
     public static void PrintMenu(){
         ViewService.printMenuOptions();
         Scanner scanner = new Scanner(System.in);
@@ -19,25 +16,28 @@ public class Menu {
             int keuze = scanner.nextInt();
             switch (keuze){
                 case 1:
+                    System.out.println("\nLijst met toetsen:");
                     ExamService.ListExams();
                     PrintMenu();
                     break;
                 case 2:
+                    System.out.println("\nLijst met Studenten:");
                     DataService.DisplayStudentList();
                     Menu.PrintMenu();
                     break;
                 case 3:
                     DataService.addNewStudent();
-                    currentStudent = DataService.CurrentStudentNumber();
+                    DataService.CurrentStudentNumber();
+                    System.out.println("Student toegevoegd \n");
                     Menu.PrintMenu();
                     break;
                 case 4:
-                    StudentService.removeStudent();
+                    DataService.removeStudent();
                     PrintMenu();
                     break;
                 case 5:
                     DataService.getExamsArrayList();
-                    ViewService.chooseExam();
+                    Menu.chooseExam();
                     break;
                 case 6:
                     DataService.seeResultsLastTest();
@@ -52,7 +52,7 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 9:
-                    Examen.examenToevoegen();
+                    //Examen.examenToevoegen();
                     break;
                     case 0:
                     System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
@@ -73,17 +73,39 @@ public class Menu {
         }
         System.out.println();
     }
-
-
-
-    public static int getCurrentStudent() {
-        return currentStudent;
+    public static void chooseExam() {
+        ExamService.ListExams();
+        ViewService.printChooseExamOptions();
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int keuze = scanner.nextInt();
+            switch (keuze) {
+                case 1:
+                    ExamService.toets(DataService.getExamsArrayList().get(keuze-1));
+                    PrintMenu();
+                    break;
+                case 2:
+                    ExamService.toets(DataService.getExamsArrayList().get(keuze-1));
+                    PrintMenu();
+                    break;
+                case 3:
+                    ExamService.toetsOpen(DataService.getExamsArrayList().get(keuze-1));
+                    PrintMenu();
+                    break;
+                case 0:
+                    PrintMenu();
+                    break;
+                default:
+                    System.out.println("\nVoer een correcte keuze in.\n");
+                    chooseExam();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("\nVoer een getal in.\n");
+            chooseExam();
+        } catch (Exception e) {
+            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n");
+            PrintMenu();
+        }
+        System.out.println();
     }
-
-
-    private void BestStudent() {
-
-    }
-
-
 }

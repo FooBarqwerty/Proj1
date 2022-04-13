@@ -9,11 +9,11 @@ public class StudentService {
     public static Student NieuweStudent(){
         Student student = new Student();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Voer uw naam in");
+        System.out.println("Voer uw naam in:");
         String setnaam = scanner.nextLine();
         student.setNaam(setnaam);
 
-        System.out.println("voer uw studentnummer in");
+        System.out.println("Voer uw studentennummer in:");
         int studentnummer = scanner.nextInt();
         studentnummer= checkStudentNumber(studentnummer);
 
@@ -34,14 +34,6 @@ public class StudentService {
         }
         return studentNumber;
     }
-
-    public static void removeStudent(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Voer de studenten nummer die uw wilt verwijderen: ");
-        int verwijderenStudent = scanner.nextInt();
-        DataService.removeStudent(verwijderenStudent);
-    }
-
 }
 
 /*

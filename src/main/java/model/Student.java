@@ -9,13 +9,12 @@ public class Student {
     private Integer studentNummer;
     private ArrayList<Results> lijstResults = new ArrayList<>();
 
+    public Student() {
+    }
 
     public Student(String Naam, Integer studentNummer) {
         this.Naam = Naam;
         this.studentNummer = studentNummer;
-    }
-
-    public Student() {
     }
 
     public ArrayList<Results> getLijstResults() {
