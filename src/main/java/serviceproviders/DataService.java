@@ -25,6 +25,7 @@ public class DataService {
         examenJaNee.setAantalVragen();
         ExamService.OpenVragen(examenOpen);
         examenOpen.setAantalVragen();
+
     }
     public static ArrayList<Examen> getExamsArrayList() {
         return Exams;
