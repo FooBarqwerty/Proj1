@@ -32,6 +32,7 @@ public class Menu {
                     DataService.addNewStudent();
                     DataService.CurrentStudentNumber();
                     System.out.println("Student toegevoegd \n");
+                    DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     Menu.PrintMenu();
                     break;
                 case 4:
@@ -60,9 +61,9 @@ public class Menu {
                     Scanner scanner2 = new Scanner(System.in);
                     int input = scanner.nextInt();
                     DataService.setCurrentStudent(input);
-
+                    Menu.PrintMenu();
                     break;
-                    case 0:
+                case 0:
                     System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
                     System.exit(0); // 0 for successful termination, 0 >for unsuccessful termination (What does it mean?)
                     break;
