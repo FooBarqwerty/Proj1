@@ -16,7 +16,7 @@ public class ViewService {
 
     public static void printMenuOptions() {
         System.out.println(
-                "1) Lijst met examens \n" +
+                        "1) Lijst met examens \n" +
                         "2) Lijst met studenten\n" +
                         "3) Nieuwe student inschrijven\n" +
                         "4) Student verwijderen\n" +
@@ -41,12 +41,7 @@ public class ViewService {
 
     public static void DisplayStudentList() {
         for (Student student : DataService.getStudentLijst()) {
-            System.out.println("------------------------");
-            System.out.print("Naam: ");
-            System.out.println(student.getNaam());
-            System.out.print("Studenten Nummer: ");
-            System.out.println(student.getStudentNumber());
-            System.out.println("------------------------");
+            System.out.println("------------------------\nNaam: " +student.getNaam()+"\n"+"Studenten Nummer: " +student.getStudentNumber()+"\n");
         }
     }
     public static void displayCurrentStudent(){
@@ -126,7 +121,8 @@ public class ViewService {
         }
         for (Student bestStudent:
                 arrayListBestStudents) {
-            System.out.println("Studenen Naam: " +bestStudent.getNaam() + "\nStudenten Nummer: " + bestStudent.getStudentNumber() +"\n");
+            System.out.println("Deze student/studenten heeft/hebben de meeste voldoendes gehaald! \nStudenten Naam: " +bestStudent.getNaam() + "\n" +
+                    "Studentenummer: " + bestStudent.getStudentNumber() +"\n");
         }
     }
 

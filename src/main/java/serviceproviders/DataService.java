@@ -1,5 +1,6 @@
 package serviceproviders;
 
+import model.Menu;
 import model.Results;
 import model.Student;
 import model.Examen;
@@ -11,7 +12,7 @@ public class DataService {
     private static ArrayList<Student> StudentLijst = new ArrayList<>();
     private static ArrayList<Examen> Exams = new ArrayList<>();
     private static Student currentStudent;
-
+    private static Boolean loginSuccess;
 
     public static ArrayList<Examen> getExamsArrayList() {
         return Exams;
@@ -56,18 +57,22 @@ public class DataService {
     }
 
     public static Student setCurrentStudent(Integer studentNumber) {
-            for (int index = 0; index < StudentLijst.size(); index++) {
-                if (StudentLijst.get(index).getStudentNumber() == studentNumber) {
-                    return currentStudent = StudentLijst.get(index);
-                }
+        for (int index = 0; index < StudentLijst.size(); index++) {
+            if (StudentLijst.get(index).getStudentNumber() == studentNumber) {
+                loginSuccess = true;
+                return currentStudent = StudentLijst.get(index);
             }
-        System.out.println("Gebruiker bestaat niet. \n Probeer opnieuw.");
+        }
+        if (loginSuccess == false){
+            Menu.displayLogIn();
+        }
+        System.out.println("Deze gebruiker bestaat niet. \nProbeer het opnieuw.");
         return currentStudent;
     }
 
     public static void initilizeStudents() {
-        Student student1 = new Student("John", 1234567);
-        Student student2 = new Student("John Snow", 1234568);
+        Student student1 = new Student("Jean-Luc Picard", 20245672);
+        Student student2 = new Student("Spock Snow", 20145683);
         Student student3 = new Student("Christiaan de Haan", 18127371);
 
         DataService.addStudent(student1);

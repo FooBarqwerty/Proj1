@@ -27,7 +27,6 @@ public class Menu {
                     break;
                 case 3:
                     DataService.addNewStudent();
-                    //DataService.setLastStudent();
                     System.out.println("Student toegevoegd \n");
                     DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     Menu.PrintMenu();
@@ -39,7 +38,6 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 5:
-                    DataService.getExamsArrayList();
                     Menu.chooseExam();
                     break;
                 case 6:
@@ -115,14 +113,14 @@ public class Menu {
         System.out.println();
     }
     public static void displayLogIn(){
-        System.out.print("Voer de studentennummer waar mee u wilt inloggen\nOf creeer een nieuw student.\n1) Inloggen\n2) Nieuwe student inschrijven\n3) Lijst met studenten\n");
+        System.out.print("Welkom tot het nieuwe examenadministratie!\n\nVoer de studentennummer waar mee u wilt inloggen\nOf creeer een nieuw student.\n1) Inloggen\n2) Nieuwe student inschrijven\n");
         Scanner scanner = new Scanner(System.in);
         try {
             int keuze = scanner.nextInt();
             switch (keuze) {
                 case 1:
                     ViewService.DisplayStudentList();
-                    System.out.println("\nVoer het studentnummer van het student waarmee u wilt inloggen:\nVoer 0 (nul) in als uw terug wilt gaan.\n");
+                    System.out.println("Voer het studentnummer van het student waarmee u wilt inloggen:\nVoer 0 (nul) in als uw terug wilt gaan.");
                     DataService.setCurrentStudent(scanner.nextInt());
                     break;
                 case 2:
@@ -138,8 +136,11 @@ public class Menu {
         }
         catch (InputMismatchException e) {
             System.out.println("\nVoer een getal in.\n");
+            Menu.displayLogIn();
         } catch (Exception e) {
             System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n");
+            Menu.displayLogIn();
+
         }
     }
 }
