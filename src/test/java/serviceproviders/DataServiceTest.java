@@ -13,6 +13,7 @@ class DataServiceTest {
 
     @Test
     @ValueSource
+    //deze methode controleert of de Exam-objecten aan de araylijst Exam zijn toegevoegd
     void addExams() {
         //arrange
         var addExamsTest = new DataService();
@@ -22,8 +23,7 @@ class DataServiceTest {
         addExamsTest.AddExams();
 
         //Assert
-        assertEquals(!(addExamsTest.getExamsArrayList().isEmpty()), expectedAnswer);
-
+        assertFalse(addExamsTest.getExamsArrayList().isEmpty());
     }
 
     @Test
@@ -36,10 +36,11 @@ class DataServiceTest {
         IS.initilizeStudents();
 
         //assert
-        assertEquals(!(IS.getStudentLijst().isEmpty()), expectedAnswer);
+        assertEquals(IS.getStudentLijst().isEmpty(), expectedAnswer);
     }
 
     @Test
+    //
     void addStudent() {
         //arrange
         DataService addStudentTest = new DataService();
@@ -60,6 +61,7 @@ class DataServiceTest {
 
     @Test
     void displayStudentList() {
+        //NA
     }
 
     @Test
@@ -111,15 +113,3 @@ class DataServiceTest {
 
     }
 
-    @Test
-    void seeResultsLastTest() {
-    }
-
-    @Test
-    void displayGeslaagdToets() {
-    }
-    @Test
-    void displayStudentRank(){
-
-    }
-}
