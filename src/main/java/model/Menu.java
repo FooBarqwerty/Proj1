@@ -115,7 +115,7 @@ public class Menu {
         System.out.println();
     }
     public static void displayLogIn(){
-        System.out.print("Voer de studentennummer waar mee u wilt inloggen\nOf creeer een nieuw student.\n1) Inloggen\n2) Nieuwe student inschrijven\n3) Lijst met studenten");
+        System.out.print("Voer de studentennummer waar mee u wilt inloggen\nOf creeer een nieuw student.\n1) Inloggen\n2) Nieuwe student inschrijven\n3) Lijst met studenten\n");
         Scanner scanner = new Scanner(System.in);
         try {
             int keuze = scanner.nextInt();
@@ -123,11 +123,15 @@ public class Menu {
                 case 1:
                     System.out.println("\nVoer het studentnummer van het student waarmee u wilt inloggen:\nVoer 0 (nul) in als uw terug wilt gaan.\n");
                     DataService.setCurrentStudent(scanner.nextInt());
+                    System.out.println(DataService.getCurrentStudent().getNaam());
+                    System.out.println();
                     break;
                 case 2:
                     DataService.addNewStudent();
+                    System.out.println(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     System.out.println("Student toegevoegd \n");
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("\nLijst met Studenten:");

@@ -114,7 +114,7 @@ public class DataService {
             int studentennummer = scanner.nextInt();
             setCurrentStudent(studentennummer);
         }
-        System.out.println("Welkom: " + currentStudent.getNaam() + "\nStudentennummer: " + currentStudent.getStudentNumber());
+        System.out.println("------------------------\nWelkom: " + currentStudent.getNaam() + "\nStudentennummer: " + currentStudent.getStudentNumber());
     }
 
     public static void  initializeResultsList(){
@@ -123,18 +123,22 @@ public class DataService {
     }
 
     public static void seeResultsLastTest(){
-        System.out.println(
-                "De resultaat van uw laatste gemaakt toets: \n\n" +
-                "Naam toets: "  +
-                DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getExamenNaam() + " \n" +
-                "Aantal goede antwoorden: " +
-                DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGoedeAntwoorden() + " \n"
-        );
-        if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGeslaagd()){
-            System.out.println("U bent geslaagd. \n");
+        if (DataService.getCurrentStudent().getLijstResults().size() == 0) {
+            System.out.println("U heeft geen toetsen gemaakt.\n");
         }
         else {
-            System.out.println("U bent niet geslaagd. \n");
+            System.out.println(
+                    "De resultaat van uw laatste gemaakt toets: \n\n" +
+                            "Naam toets: " +
+                            DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getExamenNaam() + " \n" +
+                            "Aantal goede antwoorden: " +
+                            DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getGoedeAntwoorden() + " \n"
+            );
+            if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getGeslaagd()) {
+                System.out.println("U bent geslaagd. \n");
+            } else {
+                System.out.println("U bent niet geslaagd. \n");
+            }
         }
     }
 
