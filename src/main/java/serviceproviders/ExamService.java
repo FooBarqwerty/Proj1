@@ -54,8 +54,14 @@ public class ExamService {
                 }
             }
 
-            System.out.println("Aantal goede antwoorden: " + goede_antwoorden + " van Totaal: " + totaal_vragen + " Vragen\n");
+            System.out.println("U heeft " + goede_antwoorden +" correcte antwoorden " + "van de " + examen.getAantalVragen() + "\n");
             ResultsService.addResult(examen.getNaam(), goede_antwoorden, aantalVragenGoedVoldoende);
+            if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGeslaagd()){
+                System.out.println("U bent geslaagd!");
+            }
+            else {
+                System.out.println("U bent niet geslaagd.");
+            }
         }
         catch (Exception e) {
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw\n");
@@ -91,9 +97,14 @@ public class ExamService {
 
                 }
             }
-            System.out.println("Aantal correcte antwoorden: " + goede_antwoorden + " van de " + examen.getAantalVragen() + "\n");
             ResultsService.addResult(examen.getNaam(), goede_antwoorden, aantalVragenGoedVoldoende);
-
+            System.out.println("U heeft " + goede_antwoorden +" correcte antwoorden " + "van de " + examen.getAantalVragen() + "\n");
+            if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGeslaagd()){
+                System.out.println("U bent geslaagd!");
+            }
+            else {
+                System.out.println("U bent niet geslaagd.");
+            }
         }
         catch (Exception e){
             System.out.println("Er is iets fout gegaan. Probeer het opnieuw\n");
