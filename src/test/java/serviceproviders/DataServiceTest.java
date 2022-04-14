@@ -29,14 +29,13 @@ class DataServiceTest {
     @Test
     void initilizeStudents() {
         //arrange
-        DataService IS = new DataService();
         var expectedAnswer = true;
 
         //act
-        IS.initilizeStudents();
+        DataService.initilizeStudents();
 
         //assert
-        assertEquals(IS.getStudentLijst().isEmpty(), expectedAnswer);
+        assertEquals(DataService.getStudentLijst().isEmpty(), expectedAnswer);
     }
 
     @Test
@@ -97,6 +96,9 @@ class DataServiceTest {
         assertEquals(test, expectedAnswer);
 
     }
+
+
+
 
     @Test
     void initializeResultsList() {

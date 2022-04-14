@@ -14,32 +14,20 @@ class StudentServiceTest {
 
     @Test
     void nieuweStudent() {
-
+        //NA
     }
 
     @Test
     void checkStudentNumber() {
+        //arrange
+        Student student = new Student("John", 210362);
+        var expectedAnswer = -1;
+        DataService.addStudent(student);
+
+        //assert
+        assertEquals(StudentService.checkStudentNumber(210362), expectedAnswer);
+
 
     }
 
-    @Test
-    void removeStudent() {
-        //Arrange
-        Student student = new Student("John ", 12345678);
-        DataService tes = new DataService();
-        var expectedAnswer = false;
-        tes.addStudent(student);
-
-
-
-        //Act
-        tes.removeStudent(12345678);
-
-
-
-
-        //Arrange
-        assertEquals(tes.getStudentLijst().contains(student),expectedAnswer);
-
-    }
 }
