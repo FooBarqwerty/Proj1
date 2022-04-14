@@ -59,7 +59,7 @@ public class Menu {
                     Menu.PrintMenu();
                     break;
                 case 0:
-                    System.out.println("Bedankt dat uw gebruik maakt van onze programma! Een fijne studie gewenst!");
+                    System.out.println("Bedankt dat u gebruik maakt van onze programma! Een fijne studie gewenst!");
                     System.exit(0); // 0 for successful termination, 0 >for unsuccessful termination (What does it mean?)
                     break;
                 default:
