@@ -6,9 +6,7 @@ public class App {
 	public static void main(String[] args){
 		DataService.AddExams();
 		DataService.initilizeStudents();
+		//Menu.displayLogIn();
 		Menu.PrintMenu();
-	}
-	public void examenOpslaan	() {
-
 	}
 }

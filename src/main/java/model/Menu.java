@@ -27,7 +27,7 @@ public class Menu {
                     break;
                 case 3:
                     DataService.addNewStudent();
-                    DataService.setLastStudent();
+                    //DataService.setLastStudent();
                     System.out.println("Student toegevoegd \n");
                     DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     Menu.PrintMenu();
@@ -55,7 +55,7 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 9:
-                    System.out.println("/nVoer het studentnummer van het student waar naar u wilt schakelen:/nVoer 0 (nul) in als uw terug wilt gaan.");
+                    System.out.println("\nVoer het studentnummer van het student waar naar u wilt schakelen:\nVoer 0 (nul) in als uw terug wilt gaan.");
                     int input = scanner.nextInt();
                     DataService.setCurrentStudent(input);
                     Menu.PrintMenu();
@@ -113,5 +113,40 @@ public class Menu {
             PrintMenu();
         }
         System.out.println();
+    }
+    public static void displayLogIn(){
+        System.out.print("Voer de studentennummer waar mee u wilt inloggen\nOf creeer een nieuw student.\n1) Inloggen\n2) Nieuwe student inschrijven\n3) Lijst met studenten");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int keuze = scanner.nextInt();
+            switch (keuze) {
+                case 1:
+                    System.out.println("\nVoer het studentnummer van het student waarmee u wilt inloggen:\nVoer 0 (nul) in als uw terug wilt gaan.\n");
+                    DataService.setCurrentStudent(scanner.nextInt());
+                    break;
+                case 2:
+                    DataService.addNewStudent();
+                    DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
+                    System.out.println("Student toegevoegd \n");
+                    break;
+                case 3:
+                    System.out.println("\nLijst met Studenten:");
+                    DataService.DisplayStudentList();
+                    displayLogIn();
+                case 0:
+                    displayLogIn();
+                    break;
+                default:
+                    System.out.println("\nVoer een correcte keuze in.\n");
+                    displayLogIn();
+            }
+        }
+        catch (InputMismatchException e) {
+            System.out.println("\nVoer een getal in.\n");
+            displayLogIn();
+        } catch (Exception e) {
+            System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n");
+            displayLogIn();
+        }
     }
 }

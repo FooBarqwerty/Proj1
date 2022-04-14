@@ -54,6 +54,7 @@ public class DataService {
 
     public static void addNewStudent() {
         StudentLijst.add(StudentService.NieuweStudent());
+        setLastStudent();
     }
 
     public static ArrayList<Student> getStudentLijst() {
@@ -77,6 +78,7 @@ public class DataService {
         for (int i = 0; i < StudentLijst.size(); i++) {
             if (StudentLijst.get(i).getStudentNumber() == studentNumber) {
                 StudentLijst.remove(i);
+                setLastStudent();
                 System.out.println("Student verwijderd\n");
                 verwijderCheck = true;
                 break;
@@ -95,15 +97,14 @@ public class DataService {
         return currentStudent = StudentLijst.get(StudentLijst.size() - 1);
     }
 
-    public static int setCurrentStudent(Integer studentNumber) {
-
-        for (int index = 0; index < StudentLijst.size(); index++) {
-            if (StudentLijst.get(index).getStudentNumber() == studentNumber) {
-                return studentNumber = StudentLijst.get(index).getStudentNumber();
+    public static Student setCurrentStudent(Integer studentNumber) {
+            for (int index = 0; index < StudentLijst.size(); index++) {
+                if (StudentLijst.get(index).getStudentNumber() == studentNumber) {
+                    return currentStudent = StudentLijst.get(index);
+                }
             }
-        }
         System.out.println("Gebruiker bestaat niet. \n Probeer opnieuw.");
-        return studentNumber;
+        return currentStudent;
     }
 
     public static void displayCurrentStudent(){
@@ -116,15 +117,12 @@ public class DataService {
         System.out.println("Welkom: " + currentStudent.getNaam() + "\nStudentennummer: " + currentStudent.getStudentNumber());
     }
 
-
     public static void  initializeResultsList(){
         ResultsService.addResult(Exams.get(0).getNaam(),4, Exams.get(0).getAantalVragenGoedVoldoende());
         ResultsService.addResult(Exams.get(1).getNaam(),3, Exams.get(1).getAantalVragenGoedVoldoende());
     }
 
     public static void seeResultsLastTest(){
-        //System.out.println(DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1));
-
         System.out.println(
                 "De resultaat van uw laatste gemaakt toets: \n\n" +
                 "Naam toets: "  +
@@ -132,7 +130,6 @@ public class DataService {
                 "Aantal goede antwoorden: " +
                 DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGoedeAntwoorden() + " \n"
         );
-
         if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size()-1).getGeslaagd()){
             System.out.println("U bent geslaagd. \n");
         }
