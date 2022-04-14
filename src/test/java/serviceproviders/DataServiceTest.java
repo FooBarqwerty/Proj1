@@ -26,17 +26,6 @@ class DataServiceTest {
         assertFalse(addExamsTest.getExamsArrayList().isEmpty());
     }
 
-    @Test
-    void initilizeStudents() {
-        //arrange
-        var expectedAnswer = true;
-
-        //act
-        DataService.initilizeStudents();
-
-        //assert
-        assertEquals(DataService.getStudentLijst().isEmpty(), expectedAnswer);
-    }
 
     @Test
         //
@@ -98,21 +87,5 @@ class DataServiceTest {
     }
 
 
-
-
-    @Test
-    void initializeResultsList() {
-        //arrange
-        Student IRL = new Student();
-        var expectedAnswer = true;
-
-        //act
-        DataService.initializeResultsList();
-
-        //assert
-        assertFalse(IRL.getLijstResults().isEmpty());
-
-
-    }
 }
 
