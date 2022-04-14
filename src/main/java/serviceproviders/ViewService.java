@@ -33,6 +33,12 @@ public class ViewService {
         System.out.println("Voer uw keuze in met een getal: ");
     }
 
+    public static void ListExams() {
+        for (int i = 0; i < DataService.getExamsArrayList().size(); i++) {
+            System.out.println("Examen: " + (i + 1) + " \n" + DataService.getExamsArrayList().get(i).toString());
+        }
+    }
+
     public static void DisplayStudentList() {
         for (Student student : DataService.getStudentLijst()) {
             System.out.println("------------------------");

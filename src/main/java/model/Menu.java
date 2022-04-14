@@ -17,7 +17,7 @@ public class Menu {
             switch (keuze){
                 case 1:
                     System.out.println("\nLijst met toetsen:");
-                    ExamService.ListExams();
+                    ViewService.ListExams();
                     PrintMenu();
                     break;
                 case 2:
@@ -80,7 +80,7 @@ public class Menu {
         System.out.println();
     }
     public static void chooseExam() {
-        ExamService.ListExams();
+        ViewService.ListExams();
         ViewService.printChooseExamOptions();
         Scanner scanner = new Scanner(System.in);
         try {
@@ -121,36 +121,25 @@ public class Menu {
             int keuze = scanner.nextInt();
             switch (keuze) {
                 case 1:
+                    ViewService.DisplayStudentList();
                     System.out.println("\nVoer het studentnummer van het student waarmee u wilt inloggen:\nVoer 0 (nul) in als uw terug wilt gaan.\n");
                     DataService.setCurrentStudent(scanner.nextInt());
-                    System.out.println(DataService.getCurrentStudent().getNaam());
-                    System.out.println();
                     break;
                 case 2:
                     DataService.addNewStudent();
                     System.out.println(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     System.out.println("Student toegevoegd \n");
-                    System.out.println();
-                    break;
-                case 3:
-                    System.out.println("\nLijst met Studenten:");
-                    ViewService.DisplayStudentList();
-                    displayLogIn();
-                case 0:
-                    displayLogIn();
                     break;
                 default:
                     System.out.println("\nVoer een correcte keuze in.\n");
-                    displayLogIn();
+                    Menu.displayLogIn();
             }
         }
         catch (InputMismatchException e) {
             System.out.println("\nVoer een getal in.\n");
-            displayLogIn();
         } catch (Exception e) {
             System.out.println("Er is iets onverwachts fout gegaan, probeer het opnieuw. \n");
-            displayLogIn();
         }
     }
 }
