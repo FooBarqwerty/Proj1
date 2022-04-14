@@ -13,7 +13,7 @@ class DataServiceTest {
 
     @Test
     @ValueSource
-    //deze methode controleert of de Exam-objecten aan de araylijst Exam zijn toegevoegd
+        //deze methode controleert of de Exam-objecten aan de araylijst Exam zijn toegevoegd
     void addExams() {
         //arrange
         var addExamsTest = new DataService();
@@ -40,7 +40,7 @@ class DataServiceTest {
     }
 
     @Test
-    //
+        //
     void addStudent() {
         //arrange
         DataService addStudentTest = new DataService();
@@ -56,7 +56,7 @@ class DataServiceTest {
 
     @Test
     void addNewStudent() {
-     //NA
+        //NA
     }
 
     @Test
@@ -67,7 +67,7 @@ class DataServiceTest {
     @Test
     void removeStudent() {
         //arrange
-        Student student = new Student("Jeffery",20971);
+        Student student = new Student("Jeffery", 20971);
         DataService RS = new DataService();
         RS.addStudent(student);
         var expectedAnswer = false;
@@ -91,7 +91,7 @@ class DataServiceTest {
         //act
         CS.addStudent(student);
         CS.addStudent(student2);
-        Student test =  CS.getCurrentStudent();
+        Student test = CS.getCurrentStudent();
 
         //assert
         assertEquals(test, expectedAnswer);
@@ -112,4 +112,5 @@ class DataServiceTest {
 
 
     }
+}
 
