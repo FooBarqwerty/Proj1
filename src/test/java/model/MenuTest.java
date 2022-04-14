@@ -20,8 +20,4 @@ class MenuTest {
 
         //Assert
     }
-
-    @Test
-    void getCurrentStudent() {
-    }
 }

@@ -7,14 +7,15 @@ import model.Student;
 public class StudentService {
 
     public static Student NieuweStudent(){
-        Student student = new Student();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voer uw naam in:");
         String setnaam = scanner.nextLine();
-        student.setNaam(setnaam);
 
         System.out.println("Voer uw studentennummer in:");
         int studentnummer = scanner.nextInt();
+
+
         studentnummer= checkStudentNumber(studentnummer);
 
             while (studentnummer == -1 || studentnummer > 99999999){
@@ -22,7 +23,7 @@ public class StudentService {
             studentnummer = scanner.nextInt();
             studentnummer = checkStudentNumber(studentnummer);
             }
-        student.setStudentNummer(studentnummer);
+        Student student = new Student(setnaam,studentnummer);
 
         return student;
     }
