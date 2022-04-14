@@ -8,13 +8,13 @@ class ExamServiceTest {
 
     @Test
     void listExams() {
-        //
+        //arrange
 
 
-        //
+        //act
 
 
-        //
+        //assert
 
 
     }
