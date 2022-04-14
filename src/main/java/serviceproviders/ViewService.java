@@ -1,6 +1,7 @@
 package serviceproviders;
 
 import model.Examen;
+import model.Results;
 import model.Student;
 import serviceproviders.DataService;
 
@@ -30,6 +31,97 @@ public class ViewService {
     }
     public static void printChooseExamOptions(){
         System.out.println("Voer uw keuze in met een getal: ");
+    }
+
+    public static void DisplayStudentList() {
+        for (Student student : DataService.getStudentLijst()) {
+            System.out.println("------------------------");
+            System.out.print("Naam: ");
+            System.out.println(student.getNaam());
+            System.out.print("Studenten Nummer: ");
+            System.out.println(student.getStudentNumber());
+            System.out.println("------------------------");
+        }
+    }
+    public static void displayCurrentStudent(){
+        Scanner scanner = new Scanner(System.in);
+        if (DataService.getCurrentStudent() == null){
+            System.out.println("Er is iets fout gegaan, Voer uw studentennummer in:");
+            int studentennummer = scanner.nextInt();
+            DataService.setCurrentStudent(studentennummer);
+        }
+        System.out.println("------------------------\nWelkom: " + DataService.getCurrentStudent().getNaam() + "\nStudentennummer: " + DataService.getCurrentStudent().getStudentNumber());
+    }
+
+    public static void seeResultsLastTest(){
+        if (DataService.getCurrentStudent().getLijstResults().size() == 0) {
+            System.out.println("U heeft geen toetsen gemaakt.\n");
+        }
+        else {
+            System.out.println(
+                    "De resultaat van uw laatste gemaakt toets: \n\n" +
+                            "Naam toets: " +
+                            DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getExamenNaam() + " \n" +
+                            "Aantal goede antwoorden: " +
+                            DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getGoedeAntwoorden() + " \n"
+            );
+            if (DataService.getCurrentStudent().getLijstResults().get(DataService.getCurrentStudent().getLijstResults().size() - 1).getGeslaagd()) {
+                System.out.println("U bent geslaagd. \n");
+            } else {
+                System.out.println("U bent niet geslaagd. \n");
+            }
+        }
+    }
+    public static void DisplayGeslaagdToets(){
+        if (DataService.getCurrentStudent().getLijstResults().size() == 0) {
+            System.out.println("U heeft geen toetsen gemaakt.\n");
+        }
+        else {
+            System.out.println("Deze zijn de toetsen die u een voldoende voor heeft:");
+            for (int index = 0; index < DataService.getCurrentStudent().getLijstResults().size(); index++) {
+                if (DataService.getCurrentStudent().getLijstResults().get(index).getGeslaagd()) {
+                    System.out.println(
+                            "-------------------------\n" +
+                                    "Naam toets: " +
+                                    DataService.getCurrentStudent().getLijstResults().get(index).getExamenNaam() + " \n" +
+                                    "Aantal goede antwoorden: " +
+                                    DataService.getCurrentStudent().getLijstResults().get(index).getGoedeAntwoorden() + " \n" +
+                                    "U bent geslaagd \n"
+                    );
+                }
+            }
+        }
+    }
+    public static void displayStudentRank(){
+        ArrayList<Student> arrayListBestStudents = new ArrayList<>();
+        int highScoreInt = 0;
+        int studentScoreInt = 0;
+        for (Student student:
+                DataService.getStudentLijst()
+        ) {
+
+            for (Results results:
+                    student.getLijstResults()
+            ) {
+                if (results.getGeslaagd()){
+                    studentScoreInt++;
+                }
+            }
+
+            if (studentScoreInt >= highScoreInt) {
+                arrayListBestStudents.add(student);
+                if (studentScoreInt > highScoreInt) {
+                    arrayListBestStudents.clear();
+                    arrayListBestStudents.add(student);
+                    highScoreInt = studentScoreInt;
+                }
+                studentScoreInt=0;
+            }
+        }
+        for (Student bestStudent:
+                arrayListBestStudents) {
+            System.out.println("Studenen Naam: " +bestStudent.getNaam() + "\nStudenten Nummer: " + bestStudent.getStudentNumber() +"\n");
+        }
     }
 
 }

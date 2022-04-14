@@ -9,7 +9,7 @@ import java.util.*;
 public class Menu {
 
     public static void PrintMenu(){
-        DataService.displayCurrentStudent();
+        ViewService.displayCurrentStudent();
         ViewService.printMenuOptions();
         Scanner scanner = new Scanner(System.in);
         try{
@@ -22,7 +22,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("\nLijst met Studenten:");
-                    DataService.DisplayStudentList();
+                    ViewService.DisplayStudentList();
                     Menu.PrintMenu();
                     break;
                 case 3:
@@ -43,15 +43,15 @@ public class Menu {
                     Menu.chooseExam();
                     break;
                 case 6:
-                    DataService.seeResultsLastTest();
+                    ViewService.seeResultsLastTest();
                     PrintMenu();
                     break;
                 case 7:
-                    DataService.DisplayGeslaagdToets();
+                    ViewService.DisplayGeslaagdToets();
                     PrintMenu();
                     break;
                 case 8:
-                    DataService.displayStudentRank();
+                    ViewService.displayStudentRank();
                     PrintMenu();
                     break;
                 case 9:
@@ -135,7 +135,7 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("\nLijst met Studenten:");
-                    DataService.DisplayStudentList();
+                    ViewService.DisplayStudentList();
                     displayLogIn();
                 case 0:
                     displayLogIn();
