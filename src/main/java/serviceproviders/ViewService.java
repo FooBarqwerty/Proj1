@@ -23,7 +23,7 @@ public class ViewService {
                         "6) Is student geslaagd voor test?\n" +
                         "7) Welke examens heeft student gehaald?\n" +
                         "8) Welke student heeft de meeste examens gehaald?\n" +
-                        "9) Inloggen \n" +
+                        "9) Inloggen (wisselen van student) \n" +
                         "0) Exit\n" +
                         "Uw Keuze: "
         );

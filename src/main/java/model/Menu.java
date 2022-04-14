@@ -2,17 +2,14 @@ package model;
 
 import serviceproviders.DataService;
 import serviceproviders.ExamService;
-import serviceproviders.StudentService;
 import serviceproviders.ViewService;
 
 import java.util.*;
 
 public class Menu {
 
-    private static int currentStudent;
-
-
     public static void PrintMenu(){
+        DataService.displayCurrentStudent();
         ViewService.printMenuOptions();
         Scanner scanner = new Scanner(System.in);
         try{
@@ -30,7 +27,7 @@ public class Menu {
                     break;
                 case 3:
                     DataService.addNewStudent();
-                    DataService.CurrentStudentNumber();
+                    DataService.setLastStudent();
                     System.out.println("Student toegevoegd \n");
                     DataService.setCurrentStudent(DataService.getStudentLijst().get(DataService.getStudentLijst().size()-1).getStudentNumber());
                     Menu.PrintMenu();
@@ -58,7 +55,7 @@ public class Menu {
                     PrintMenu();
                     break;
                 case 9:
-                    Scanner scanner2 = new Scanner(System.in);
+                    System.out.println("/nVoer het studentnummer van het student waar naar u wilt schakelen:/nVoer 0 (nul) in als uw terug wilt gaan.");
                     int input = scanner.nextInt();
                     DataService.setCurrentStudent(input);
                     Menu.PrintMenu();

@@ -84,15 +84,15 @@ class DataServiceTest {
         DataService CS = new DataService();
         Student student = new Student("Jeffery", 372949);
         Student student2 = new Student("Jeff", 2020202);
-        CS.addStudent(student);
-        CS.addStudent(student2);
         Student expectedAnswer = student2;
 
         //act
-        CS.CurrentStudent();
+        CS.addStudent(student);
+        CS.addStudent(student2);
+        Student test =  CS.getCurrentStudent();
 
         //assert
-        assertEquals(CS.CurrentStudent(), expectedAnswer);
+        assertEquals(test, expectedAnswer);
 
     }
 
